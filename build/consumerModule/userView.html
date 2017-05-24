@@ -1,9 +1,11 @@
-<div class = "view-wrapper">	
+<div class = "view-wrapper" style = "    -moz-box-shadow: 0 0 15px 0 rgba(0,0,0,.1);
+    -webkit-box-shadow: 0 0 15px 0 rgba(0,0,0,.1);
+    box-shadow: 0 0 15px 0 rgba(0,0,0,.1);">	
 	<div class = "title-wrapper">
 		<div class = "userInfo-wrapper">
 			<div class = "item"><i class = "fa fa-user-circle-o icon-resize-60"></i></div>
 			<div class = "item add-space">
-				<span>mubin.zeng</span>
+				<span>admin</span>
 				<span>会员编号：902225578</span>
 			</div>
 		</div>
@@ -11,7 +13,7 @@
 		<div class = "tab-wrapper">
 			<ul>
 				<li><a ui-sref = ".userInfo" ui-sref-active = "tabActive">基本信息</a></li>
-				<li><a ui-sref = ".disease"  ui-sref-active = "tabActive">慢病管理</a></li>
+				<li><a ui-sref = ".disease.xy"  ui-sref-active = "tabActive">慢病管理</a></li>
 				<li><a ui-sref = ".history"  ui-sref-active = "tabActive">历史购买</a></li>
 				<li><a ui-sref = ".record"   ui-sref-active = "tabActive">健康档案</a></li>
 				<li><a ui-sref = ".suggestion" ui-sref-active = "tabActive">健康建议</a></li>
@@ -20,5 +22,5 @@
 			</ul>
 		</div>
 	</div>
-	<div ui-view></div>
+	<div ui-view class = "page  rotate-in"></div>
 </div>

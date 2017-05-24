@@ -1,55 +1,32 @@
-<div class = "view-wrapper" style = "background-color: rgba(236, 240, 245, 1);">	
+<div class = "view-wrapper" style = "background-color: rgba(236, 240, 245, 1);min-height: 700px;">	
 	<div class = "userView-wrapper">
+
 		<div class = "search">
 			<span class = "search-icon"><img src = "./images/15.png" width = "30" height = "30"/></span>
-			<span class = "search-content"><input type = "text" placeholder = " 请输入搜索内容" /></span>
-			<span class = "search-remove"><img src = "./images/16.png" width = "20" height = "20"/></span>
+			<span class = "search-content"><input type = "text" placeholder = " 请输入搜索内容" ng-model = "search.content"  
+			ng-keyup = 'search.startSearch()'/></span>
+			<span class = "search-remove" ng-click = "search.remove()"><img src = "./images/16.png" width = "20" height = "20"  /></span>
 		</div>
 		<div class = "search-tip">
-			"同仁堂"匹配 <span>4</span>人
+			{{search.content}}匹配 <span>{{search.searchResult.length}}</span>人
 		</div>
 		<div class = "result">
-			<div class = "item" ui-sref = "consumer.userView.userInfo">
+			<div class = "item "  ui-sref = "consumer.userView.userInfo" ng-repeat = "item in search.searchResult track by $index">
 				<div class = "image"><i class = "fa fa-user-circle-o icon-resize-60"></i></div>
-				<div class = "name"><span>姓名:</span> 同仁堂</div>
-				<div class = "name"><span>会员号:</span> 同仁堂</div>
-			</div>
-			<div class = "item">
-				<div class = "image"><i class = "fa fa-user-circle-o icon-resize-60"></i></div>
-				<div class = "name"><span>姓名:</span> 同仁堂</div>
-				<div class = "name"><span>会员号:</span> 同仁堂</div>
-			</div>
-			<div class = "item">
-				<div class = "image"><i class = "fa fa-user-circle-o icon-resize-60"></i></div>
-				<div class = "name"><span>姓名:</span> 同仁堂</div>
-				<div class = "name"><span>会员号:</span> 同仁堂</div>
-			</div>
-			<div class = "item">
-				<div class = "image"><i class = "fa fa-user-circle-o icon-resize-60"></i></div>
-				<div class = "name"><span>姓名:</span> 同仁堂</div>
-				<div class = "name"><span>会员号:</span> 同仁堂</div>
-			</div>
-			<div class = "item">
-				<div class = "image"><i class = "fa fa-user-circle-o icon-resize-60"></i></div>
-				<div class = "name"><span>姓名:</span> 同仁堂</div>
-				<div class = "name"><span>会员号:</span> 同仁堂</div>
-			</div>
-			<div class = "item">
-				<div class = "image"><i class = "fa fa-user-circle-o icon-resize-60"></i></div>
-				<div class = "name"><span>姓名:</span> 同仁堂</div>
-				<div class = "name"><span>会员号:</span> 同仁堂</div>
-			</div>															
+				<div class = "name"><span>姓名:</span> {{item.name}}</div>
+				<div class = "name"><span>会员号:</span>{{item.no}}</div>
+			</div>								
 		</div>
 
 		<div class = "hot-wrapper">
 			<h2 class  = "title">热门标签</h2>
-			<div class = "flex-wrapper">
-				<div class = "hot-item">青霉素过敏</div>
-				<div class = "hot-item">克林霉素过敏</div>
+			<div class = "flex-wrapper" ng-click = "search.startSearch()">
+				<div class = "hot-item" >青霉素过敏</div>
+				<div class = "hot-item" >克林霉素过敏</div>
 				<div class = "hot-item">高血压</div>
-				<div class = "hot-item">青霉素过敏</div>
-				<div class = "hot-item">高血糖</div>
-				<div class = "hot-item">气血不足</div>
+				<div class = "hot-item" >青霉素过敏</div>
+				<div class = "hot-item" >高血糖</div>
+				<div class = "hot-item" >气血不足</div>
 			</div>
 		</div>
 	</div>

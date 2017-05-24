@@ -1,2 +1,2 @@
 'use strict';
-angular.module('app',['ui.router','ui.bootstrap','headerModule', 'letMenuModule','leftMenuModulePro']);
+angular.module('app',['ui.router','ngAnimate','ui.bootstrap','headerModule', 'letMenuModule','leftMenuModulePro','featureController','dataDashboardController','productSaleController','ccController','userinfoController','userSearchController','overViewController','productInfoController','producViewController','historyController']);

@@ -1,1 +1,428 @@
-dataDashboard
+ 	<div class = "detail-wrapper" style = "background-color: rgba(55, 61, 65, 1); min-height: 900px;border-top:1px solid #fff;padding-top:60px;">	
+ 		<div class = "dataDashboard-wrapper">
+ 			        <!-- 更新时间 -->
+	        <div id="u545" data-ng-init="load()">
+	            <div id="u546" class="text" style="visibility: visible;">
+	                <p style="font-size:14px;"><span style="color:rgba(255, 255, 255, 0.8);">交互数据仪表盘</span></p>
+	                <p style="font-size:12px;"><span style="color:rgba(153, 153, 153, 0.8);">{{myDate | date:'yyyy-mm-dd hh:mm'}}</span></p>
+	            </div>
+	        </div>
+	        <div id="u385">
+	            <img id="u385_img" class="img " src="./images/u385.png" />
+	            <div id="u386" class="text" style="display: none; visibility: hidden">
+	                <p><span></span></p>
+	            </div>
+	        </div>
+	        <!-- 连接线 -->
+	        <div id="u387" WidgetHeight="35" WidgetWidth="431" CompoundMode="true">
+	            <img id="u387_img" class="singleImg img " src="./images/u387.png" />
+	        </div>
+	        <div id="u389" class="compound ax_default icon" WidgetHeight="1" WidgetWidth="386" CompoundMode="true">
+	            <img id="u389_img" class="singleImg img " src="./images/u389.png" />
+	        </div>
+	        <div id="u391" WidgetHeight="121" WidgetWidth="499" CompoundMode="true">
+	            <img id="u391_img" src="./images/u391.png" />
+	        </div>
+	        <div id="u443" WidgetHeight="1" WidgetWidth="420" CompoundMode="true">
+	            <img id="u443_img" src="./images/u443.png" />
+	        </div>
+	        <div id="u493" WidgetHeight="35" WidgetWidth="431" CompoundMode="true">
+	            <img id="u493_img" src="./images/u493.png" />
+	        </div>
+	        <div id="u511" WidgetHeight="35" WidgetWidth="458" CompoundMode="true">
+	            <img id="u511_img" src="./images/u511.png" />
+	        </div>
+	        <!--底部表格 -->
+	        <div id="u409">
+	            <div id="u410" class="text" style="visibility: visible;">
+	                <p><span>互动设备仪表盘_环境</span></p>
+	            </div>
+	        </div>
+	        <div>
+	            <div id="u405">
+	                <img id="u405_img" src="./images/u399.png" />
+	            </div>
+	            <div id="u407">
+	                <div id="u408" style="visibility: visible;">
+	                    <p><span>{{data.rate1}}</span></p>
+	                </div>
+	            </div>
+	        </div>
+	        <div>
+	            <div id="u399">
+	                <img id="u399_img" src="./images/u399.png" />
+	            </div>
+	            <div id="u403">
+	                <div id="u404" style="visibility: visible;">
+	                    <p><span>{{data.rate2}}</span></p>
+	                </div>
+	            </div>
+	        </div>
+	        <div>
+	            <div id="u401">
+	                <div id="u402" class="text" style="visibility: visible;">
+	                    <p><span>{{data.rate3}}</span></p>
+	                </div>
+	            </div>
+	            <div id="u395">
+	                <img id="u395_img" src="./images/u395.png" />
+	            </div>
+	        </div>
+	        <div>
+	            <div id="u393">
+	                <div id="u394" class="text" style="visibility: visible;">
+	                    <p><span>{{data.rate4}}</span></p>
+	                </div>
+	            </div>
+	            <div id="u397" class="ax_default icon">
+	                <img id="u397_img" class="img " src="./images/u397.png" />
+	            </div>
+	        </div>
+	        <!-- 心率 -->
+	        <div id="u411">
+	            <img id="u411_img" src="./images/circle_1_u411.png" />
+	        </div>
+	        <div id="u413" ng-class="{'color_yellow':data.rate>120}">
+	            <div id="u414" style="visibility: visible;">
+	                <p><span>{{data.rate}}</span></p>
+	            </div>
+	        </div>
+	        <div id="u415" ng-class="{'color_yellow':data.rate>120}">
+	            <div id="u416" style="visibility: visible;">
+	                <p><span>{{data.rateUnit}}</span></p>
+	            </div>
+	        </div>
+	        <div id="u417">
+	            <div id="u418" style="visibility: visible;">
+	                <p><span>心率</span></p>
+	            </div>
+	        </div>
+	        <!-- 肺活量 -->
+	        <div id="u419" class="ax_default _图片" data-label="circle_1">
+	            <img id="u419_img" class="img " src="./images/circle_1_u411.png" />
+	        </div>
+	        <div id="u421" ng-class="{'color_yellow':data.capacity<3000}">
+	            <div id="u422" style="visibility: visible;">
+	                <p><span>{{data.capacity}}</span></p>
+	            </div>
+	        </div>
+	        <div id="u423" ng-class="{'color_yellow':data.capacity<3000}">
+	            <div id="u424" style="visibility: visible;">
+	                <p><span>{{data.capacityUnit}}</span></p>
+	            </div>
+	        </div>
+	        <div id="u425">
+	            <div id="u426" style="visibility: visible;">
+	                <p><span>肺活量</span></p>
+	            </div>
+	        </div>
+	        <!-- 身体年龄 -->
+	        <div id="u485">
+	            <img id="u485_img" src="./images/circle_1_u411.png" />
+	        </div>
+	        <div id="u487">
+	            <img id="u487_img" src="./images/u471.png" />
+	            <div id="u488" style="visibility: visible;">
+	                <p><span>{{data.age}}</span></p>
+	            </div>
+	        </div>
+	        <div id="u489">
+	            <div id="u490" class="text" style="visibility: visible;">
+	                <p><span>{{data.ageUnit}}</span></p>
+	            </div>
+	        </div>
+	        <div id="u491">
+	            <div id="u492" style="visibility: visible;">
+	                <p><span>身体年龄</span></p>
+	            </div>
+	        </div>
+	        <!-- 口鼻气流 -->
+	        <div id="u477">
+	            <img id="u477_img" src="./images/circle_1_u411.png" />
+	        </div>
+	        <div id="u479" ng-class="{'color_yellow':data.airflow>15}">
+	            <div id="u480" class="text" style="visibility: visible;">
+	                <p><span>{{data.airflow}}</span></p>
+	            </div>
+	        </div>
+	        <div id="u481" ng-class="{'color_yellow':data.airflow>15}">
+	            <div id="u482" style="visibility: visible;">
+	                <p><span>{{data.airflowUnit}}</span></p>
+	            </div>
+	        </div>
+	        <div id="u483">
+	            <div id="u484" style="visibility: visible;">
+	                <p><span>口鼻气流</span></p>
+	            </div>
+	        </div>
+	        <!-- 体温 -->
+	        <div id="u461">
+	            <img id="u461_img" src="./images/circle_1_u411.png" />
+	        </div>
+	        <div id="u463" ng-class="{'color_yellow':data.tmp>37.5}">
+	            <div id="u464" style="visibility: visible;">
+	                <p><span>{{data.tmp}}</span></p>
+	            </div>
+	        </div>
+	        <div id="u465" ng-class="{'color_yellow':data.tmp>37.5}">
+	            <div id="u466" style="visibility: visible;">
+	                <p><span>{{data.tmpUnit}}</span></p>
+	            </div>
+	        </div>
+	        <div id="u467">
+	            <div id="u468" class="text" style="visibility: visible;">
+	                <p><span>体温</span></p>
+	            </div>
+	        </div>
+	        <!-- 睡眠 -->
+	        <div id="u427">
+	            <img id="u427_img" src="./images/circle_1_u411.png" />
+	        </div>
+	        <div id="u429" ng-class="{'color_yellow':data.sleep<8}">
+	            <div id="u430" style="visibility: visible;">
+	                <p><span>{{data.sleep}}</span></p>
+	            </div>
+	        </div>
+	        <div id="u431" ng-class="{'color_yellow':data.sleep<8}">
+	            <img id="u431_img" src="./images/u431.png" />
+	            <div id="u432" style="visibility: visible;">
+	                <p><span>{{data.sleepUnit}}</span></p>
+	            </div>
+	        </div>
+	        <div id="u433">
+	            <div id="u434" class="text" style="visibility: visible;">
+	                <p><span>睡眠</span></p>
+	            </div>
+	        </div>
+	        <!-- 血糖 -->
+	        <div id="u445">
+	            <img id="u445_img" class="img " src="./images/circle_1_u411.png" />
+	        </div>
+	        <div id="u447" ng-class="{'color_yellow':data.sugar<5}">
+	            <div id="u448" style="visibility: visible;">
+	                <p><span>{{data.sugar}}</span></p>
+	            </div>
+	        </div>
+	        <div id="u449" ng-class="{'color_yellow':data.sugar<5}">
+	            <div id="u450" style="visibility: visible;">
+	                <p><span>{{data.sugarUnit}}</span></p>
+	            </div>
+	        </div>
+	        <!-- Unnamed (文本段落) -->
+	        <div id="u451">
+	            <div id="u452" style="visibility: visible;">
+	                <p><span>血糖</span></p>
+	            </div>
+	        </div>
+	        <!-- 血氧 -->
+	        <div id="u469" class="ax_default _图片" data-label="circle_1">
+	            <img id="u469_img" class="img " src="./images/circle_1_u411.png" />
+	            <!-- Unnamed () -->
+	            <div id="u470" class="text" style="display: none; visibility: hidden">
+	                <p><span></span></p>
+	            </div>
+	        </div>
+	        <!-- Unnamed (文本段落) -->
+	        <div id="u471" ng-class="{'color_yellow':data.oxygen<95}">
+	            <img id="u471_img" class="img " src="./images/u471.png" />
+	            <!-- Unnamed () -->
+	            <div id="u472" class="text" style="visibility: visible;">
+	                <p><span>{{data.oxygen}}</span></p>
+	            </div>
+	        </div>
+	        <!-- Unnamed (文本段落) -->
+	        <div id="u473" ng-class="{'color_yellow':data.oxygen<95}">
+	            <img id="u473_img" class="img " src="./images/u473.png" />
+	            <!-- Unnamed () -->
+	            <div id="u474" class="text" style="visibility: visible;">
+	                <p><span>{{data.oxygenUnit}}</span></p>
+	            </div>
+	        </div>
+	        <!-- Unnamed (文本段落) -->
+	        <div id="u475" class="ax_default _文本段落">
+	            <img id="u475_img" class="img " src="./images/u76.png" />
+	            <!-- Unnamed () -->
+	            <div id="u476" class="text" style="visibility: visible;">
+	                <p><span>血氧</span></p>
+	            </div>
+	        </div>
+	        <!-- 收缩压/舒张压 -->
+	        <div id="u453" class="ax_default _图片" data-label="circle_1">
+	            <img id="u453_img" class="img " src="./images/circle_1_u411.png" />
+	            <!-- Unnamed () -->
+	            <div id="u454" class="text" style="display: none; visibility: hidden">
+	                <p><span></span></p>
+	            </div>
+	        </div>
+	        <!-- Unnamed (文本段落) -->
+	        <div id="u455" class="ax_default _文本段落">
+	            <img id="u455_img" class="img " src="./images/u455.png" />
+	            <!-- Unnamed () -->
+	            <div id="u456" class="text" style="visibility: visible;">
+	                <p><span>{{data.pressure}}</span></p>
+	            </div>
+	        </div>
+	        <!-- Unnamed (文本段落) -->
+	        <div id="u457" class="ax_default _文本段落">
+	            <img id="u457_img" class="img " src="./images/u457.png" />
+	            <!-- Unnamed () -->
+	            <div id="u458" class="text" style="visibility: visible;">
+	                <p><span>{{data.pressureUnit}}</span></p>
+	            </div>
+	        </div>
+	        <!-- Unnamed (文本段落) -->
+	        <div id="u459" class="ax_default _文本段落">
+	            <img id="u459_img" class="img " src="./images/u459.png" />
+	            <!-- Unnamed () -->
+	            <div id="u460" class="text" style="visibility: visible;">
+	                <p><span>收缩压/舒张压</span></p>
+	            </div>
+	        </div>
+	        <!-- 脉搏 -->
+	        <div id="u435" class="ax_default _图片" data-label="circle_1">
+	            <img id="u435_img" class="img " src="./images/circle_1_u411.png" />
+	            <!-- Unnamed () -->
+	            <div id="u436" class="text" style="display: none; visibility: hidden">
+	                <p><span></span></p>
+	            </div>
+	        </div>
+	        <!-- Unnamed (文本段落) -->
+	        <div id="u437" class="ax_default _文本段落">
+	            <img id="u437_img" class="img " src="./images/u413.png" />
+	            <!-- Unnamed () -->
+	            <div id="u438" class="text" style="visibility: visible;">
+	                <p><span>{{data.pulse}}</span></p>
+	            </div>
+	        </div>
+	        <!-- Unnamed (文本段落) -->
+	        <div id="u439" class="ax_default _文本段落">
+	            <img id="u439_img" class="img " src="./images/u415.png" />
+	            <!-- Unnamed () -->
+	            <div id="u440" class="text" style="visibility: visible;">
+	                <p><span>{{data.pulseUnit}}</span></p>
+	            </div>
+	        </div>
+	        <!-- Unnamed (文本段落) -->
+	        <div id="u441" class="ax_default _文本段落">
+	            <img id="u441_img" class="img " src="./images/u76.png" />
+	            <!-- Unnamed () -->
+	            <div id="u442" class="text" style="visibility: visible;">
+	                <p><span>脉搏</span></p>
+	            </div>
+	        </div>
+	        <!-- 体重 -->
+	        <div id="u513">
+	            <img id="u513_img" class="img " src="./images/circle_1_u411.png" />
+	        </div>
+	        <div id="u515" ng-class="{'color_yellow':data.weight>60}">
+	            <div id="u516" style="visibility: visible;">
+	                <p><span>{{data.weight}}</span></p>
+	            </div>
+	        </div>
+	        <div id="u517" ng-class="{'color_yellow':data.weight>60}">
+	            <div id="u518" class="text" style="visibility: visible;">
+	                <p><span>{{data.weightUnit}}</span></p>
+	            </div>
+	        </div>
+	        <div id="u519">
+	            <div id="u520" style="visibility: visible;">
+	                <p><span>体重</span></p>
+	            </div>
+	        </div>
+	        <!-- 肌肉率 -->
+	        <div id="u521">
+	            <img id="u521_img" class="img " src="./images/circle_1_u411.png" />
+	        </div>
+	        <div id="u523" ng-class="{'color_yellow':data.Muscle<35}">
+	            <div id="u524" style="visibility: visible;">
+	                <p><span>{{data.Muscle}}</span></p>
+	            </div>
+	        </div>
+	        <div id="u525" ng-class="{'color_yellow':data.Muscle<35}">
+	            <div id="u526" class="text" style="visibility: visible;">
+	                <p><span>{{data.MuscleUnit}}</span></p>
+	            </div>
+	        </div>
+	        <div id="u527">
+	            <div id="u528" style="visibility: visible;">
+	                <p><span>肌肉率</span></p>
+	            </div>
+	        </div>
+	        <!-- 脂肪率 -->
+	        <div id="u529">
+	            <img id="u529_img" src="./images/circle_1_u411.png" />
+	        </div>
+	        <div id="u531" ng-class="{'color_yellow':data.Muscle>35}">
+	            <div id="u532" style="visibility: visible;">
+	                <p><span>{{data.fat}}</span></p>
+	            </div>
+	        </div>
+	        <div id="u533" ng-class="{'color_yellow':data.Muscle>35}">
+	            <div id="u534" style="visibility: visible;">
+	                <p><span>{{data.fatUnit}}</span></p>
+	            </div>
+	        </div>
+	        <div id="u535">
+	            <div id="u536" style="visibility: visible;">
+	                <p><span>脂肪率</span></p>
+	            </div>
+	        </div>
+	        <!--基础代谢情况 -->
+	        <div id="u537">
+	            <img id="u537_img" class="img " src="./images/circle_1_u411.png" />
+	        </div>
+	        <div id="u539" ng-class="{'color_yellow':data.metabolism<1200}">
+	            <div id="u540" style="visibility: visible;">
+	                <p><span>{{data.metabolism}}</span></p>
+	            </div>
+	        </div>
+	        <div id="u541" ng-class="{'color_yellow':data.metabolism<1200}">
+	            <div id="u542" style="visibility: visible;">
+	                <p><span>{{data.metabolismUnit}}</span></p>
+	            </div>
+	        </div>
+	        <div id="u543">
+	            <div id="u544" style="visibility: visible;">
+	                <p><span>基础代谢情况</span></p>
+	            </div>
+	        </div>
+	        <!-- 运动步数 -->
+	        <div id="u503">
+	            <img id="u503_img" src="./images/circle_1_u411.png" />
+	        </div>
+	        <div id="u505" ng-class="{'color_yellow':data.steps<12000}">
+	            <div id="u506" style="visibility: visible;">
+	                <p><span>{{data.steps}}</span></p>
+	            </div>
+	        </div>
+	        <div id="u507" ng-class="{'color_yellow':data.steps<12000}">
+	            <div id="u508" style="visibility: visible;">
+	                <p><span>{{data.stepsUnit}}</span></p>
+	            </div>
+	        </div>
+	        <div id="u509">
+	            <div id="u510" style="visibility: visible;">
+	                <p><span>运动步数</span></p>
+	            </div>
+	        </div>
+	        <!-- 消耗热量 -->
+	        <div id="u495">
+	            <img id="u495_img" class="img " src="./images/circle_1_u411.png" />
+	        </div>
+	        <div id="u497" ng-class="{'color_yellow':data.hot<300}">
+	            <div id="u498" style="visibility: visible;">
+	                <p><span>{{data.hot}}</span></p>
+	            </div>
+	        </div>
+	        <div id="u499" ng-class="{'color_yellow':data.hot<300}">
+	            <div id="u500" style="visibility: visible;">
+	                <p><span>{{data.hotUnit}}</span></p>
+	            </div>
+	        </div>
+	        <div id="u501">
+	            <div id="u502" style="visibility: visible;">
+	                <p><span>消耗热量</span></p>
+	            </div>
+	        </div>
+ 		</div>
+ 	</div>

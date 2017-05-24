@@ -30,9 +30,9 @@ gulp.task('json', function () {
 });
 
 gulp.task('less', function () {
-	gulp.src(app.srcPath + 'style/**/*.less')
-	.pipe($.less()) //编译less
+	gulp.src(app.srcPath + 'style/**/*.css')
 	.pipe($.concat('all.css')) //合并所有js文件
+	//.pipe($.less()) //编译less
 	.pipe(gulp.dest(app.devPath + 'css'))
 	.pipe($.cssmin()) //压缩css
 	.pipe(gulp.dest(app.prdPath + 'css'))

@@ -1,1 +1,11 @@
-cc
+<div>
+	<div id="u24" ng-if="isShow">
+	    <div class="u37">{{selectDate}}</div>
+	    <div><HR></HR></div>
+	    <div class="u38" ng-repeat="item in dateLists" ng-class="{active:item.checked}" ng-click="onDateClick($index)">{{item.date}}</div>
+	</div>
+	<div id="main" style="width: 100%;height:300px;"></div>
+	<div style="width: 100% height:600px;margin-left: 20px;background: #ffffff ">
+	    <div id="pic" style="width: 1200px; height:600px;margin:0 auto; "></div>
+	</div>
+</div>

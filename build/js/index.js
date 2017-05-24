@@ -1,5 +1,5 @@
 'use strict';
-angular.module('app',['ui.router','ui.bootstrap','headerModule', 'letMenuModule','leftMenuModulePro']);
+angular.module('app',['ui.router','ngAnimate','ui.bootstrap','headerModule', 'letMenuModule','leftMenuModulePro','featureController','dataDashboardController','productSaleController','ccController','userinfoController','userSearchController','overViewController','productInfoController','producViewController','historyController']);
 'use strict';
 
 angular.module('app').config(['$stateProvider', '$urlRouterProvider', function ($stateProvider,$urlRouterProvider) {
@@ -11,12 +11,12 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', function (
 	.state('consumer.overView',{ //首页
 		url:'consumer/overView',
 		templateUrl:'consumerModule/overView.html',
-		controller:''
+		controller:'overViewController'
 	})
 	.state('consumer.userSearch',{ //用户视图搜索
 		url:'consumer/userSearch',
 		templateUrl:'consumerModule/userSearch.html',
-		controller:''
+		controller:'userSearchController'
 	})
 	.state('consumer.userView',{ // 用户视图内容
 		url:'consumer/userView',
@@ -26,7 +26,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', function (
 	.state('consumer.userView.userInfo',{ // 用户基本信息
 		url:'/userInfo',
 		templateUrl:'consumerModule/userInfo.html',
-		controller:''
+		controller:'userinfoController'
 	})
 	.state('consumer.userView.disease',{ // 用户慢病管理
 		url:'/disease',
@@ -46,7 +46,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', function (
 	.state('consumer.userView.history',{ // 用户购买历史
 		url:'/history',
 		templateUrl:'consumerModule/history.html',
-		controller:''
+		controller:'historyController'
 	})
 	.state('consumer.userView.record',{ // 用户健康档案
 		url:'/record',
@@ -61,27 +61,27 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', function (
 	.state('consumer.userView.feature',{ // 用户标签
 		url:'/feature',
 		templateUrl:'consumerModule/feature.html',
-		controller:''
+		controller:'featureController'
 	})
 	.state('consumer.userView.dataDashboard',{ // 用户交互数仪表盘
 		url:'/dataDashboard',
 		templateUrl:'consumerModule/dataDashboard.html',
-		controller:''
+		controller:'dataDashboardController'
 	})
 	.state('consumer.productView',{ // 产品视图搜索
 		url:'consumer/productView',
 		templateUrl:'consumerModule/product-view.html',
-		controller:''
+		controller:'producViewController'
 	})
 	.state('consumer.productDetail.productInfo',{ // 产品基本信息
 		url:'productInfo',
 		templateUrl:'consumerModule/product-info.html',
-		controller:''
+		controller:'productInfoController'
 	})
 	.state('consumer.productDetail.productSale',{ // 产品销售
 		url:'productSale',
 		templateUrl:'consumerModule/product-sale.html',
-		controller:''
+		controller:'productSaleController'
 	})
 	.state('consumer.productDetail.productComments',{ // 产品评论
 		url:'productComments',
@@ -107,17 +107,17 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', function (
 	.state('supplier.supplierOverview.cc',{
 		url:'/cc',
 		templateUrl:'supplierModule/cc.html',
-		controller:''
+		controller:'ccController'
 	})
 	.state('supplier.supplierOverview.xys',{
 		url:'/xys',
 		templateUrl:'supplierModule/xys.html',
-		controller:''
+		controller:'ccController'
 	})
 	.state('supplier.supplierOverview.sq',{
 		url:'/sq',
 		templateUrl:'supplierModule/sq.html',
-		controller:''
+		controller:'ccController'
 	})		
 	$urlRouterProvider.otherwise('consumer/overView')
 
