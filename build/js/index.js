@@ -15,17 +15,17 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', function (
 		controller:''
 	})
 	.state('consumer.overView',{ //首页
-		url:'consumer/overView',
-		templateUrl:'consumerModule/overView.html',
+		url:'overView',
+		templateUrl:'consumerModule/overview.html',
 		controller:'overViewController'
 	})
 	.state('consumer.userSearch',{ //用户视图搜索
-		url:'consumer/userSearch',
+		url:'userSearch',
 		templateUrl:'consumerModule/userSearch.html',
 		controller:'userSearchController'
 	})
 	.state('consumer.userView',{ // 用户视图内容
-		url:'consumer/userView',
+		url:'userView',
 		templateUrl:'consumerModule/userView.html',
 		controller:''
 	})
@@ -125,6 +125,6 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', function (
 		templateUrl:'supplierModule/sq.html',
 		controller:'ccController'
 	})		
-	$urlRouterProvider.otherwise('consumer/overView')
+	$urlRouterProvider.otherwise('overView')
 
 }]);

@@ -10178,16 +10178,16 @@ input:focus, textarea:focus, select:focus {
 
 #u820 {
     position: absolute;
-    top:50%;
+    top: 44%;
     margin-top: -240px;
     margin-left: -580px;
     left: 59%;
-    z-index:99999;
+    z-index: 99999;
 }
 
 #r820 {
     position: absolute;
-    top:50%;
+    top: 44%;
     margin-top: -180px;
     margin-left: -580px;
     left: 59%;
@@ -10196,7 +10196,7 @@ input:focus, textarea:focus, select:focus {
 
 #r830 {
     position: absolute;
-    top:50%;
+    top: 44%;
     margin-top: -140px;
     margin-left: -500px;
     left: 59%;
@@ -10205,7 +10205,7 @@ input:focus, textarea:focus, select:focus {
 
 #r840 {
     position: absolute;
-    top:50%;
+    top: 44%;
     margin-top: -40px;
     margin-left: -600px;
     left: 59%;
@@ -10431,7 +10431,7 @@ input:focus, textarea:focus, select:focus {
 
 #u125 {
  position: absolute;
-    top:50%;
+    top:42%;
     margin-top: -225px;
     margin-left: 250px;
     left: 40%;
@@ -10440,7 +10440,7 @@ input:focus, textarea:focus, select:focus {
 
 #q820 {
  position: absolute;
-    top:50%;
+    top:42%;
     margin-top: -225px;
     margin-left: 360px;
     left: 40%;
@@ -10449,7 +10449,7 @@ input:focus, textarea:focus, select:focus {
 
 #q830 {
     position: absolute;
-    top:50%;
+    top:42%;
     margin-top: -275px;
     margin-left: 390px;
     left: 40%;
@@ -10458,7 +10458,7 @@ input:focus, textarea:focus, select:focus {
 
 #q840 {
     position: absolute;
-    top:50%;
+    top:42%;
     margin-top: -250px;
     margin-left: 370px;
     left: 40%;
