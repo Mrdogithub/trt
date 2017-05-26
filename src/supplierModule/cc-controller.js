@@ -1,10 +1,11 @@
 angular.module("ccController", [])
-        .controller("ccController", function($scope, $http) {
-         $scope.isIndex0 = true;
+    .controller("ccController", function($scope, $http) {
+            $scope.isIndex0 = true;
             $scope.isIndex1 = false;
             $scope.isIndex2 = false;
             $scope.selectDate = '2017';
             $scope.isShow = false;
+            $scope.isLowShow = false;
             $scope.dateLists = [{
                 'date': 2014,
                 'checked': false
@@ -62,16 +63,16 @@ angular.module("ccController", [])
 
             };
             var piontCount = 0;
-            var price1 = [900, 1300, 1200, 1200, 1600];
-            var price2 = [1100, 1300, 1600, 1600, 1700];
-            var price3 = [1000, 1200, 1100, 1300, 1100];
+            var price1 = [1100, 1400, 1100, 1500, 1600,1200,1620];
+            var price2 = [0,900, 700, 1500, 765, 1200,620];
+            var price3 = [0,700, 400,1200, 900, 200, 800];
             var require1 = [800, 900, 1100, 1500, 1600];
             var require2 = [1000, 1100, 1100, 1700, 1600];
             var require3 = [1100, 800, 1100, 1400, 1600];
             var make1 = [700, 1000, 1100, 1600, 1600];
             var make2 = [1200, 1400, 1500, 1100, 1700];
             var make3 = [1000, 1200, 1100, 1500, 1300];
-           
+
             var convertData = function(data) {
                 var res = [];
                 var tmpGeoCoordMap = geoCoordMap;
@@ -130,7 +131,6 @@ angular.module("ccController", [])
                 myChart2.setOption(option2);
             }
             $scope.onTabClick = function(index) {
-
                 switch (index) {
                     case 0:
                         $scope.isIndex0 = true;
@@ -159,6 +159,7 @@ angular.module("ccController", [])
 
                 }
                 piontCount = index;
+
                 option.series[0].data = convertData([{
                     name: "海门",
                     value: '光照：80%；湿度：67%；温度：27℃'
@@ -292,7 +293,7 @@ angular.module("ccController", [])
                     },
                     itemStyle: {
                         normal: {
-                            borderColor:'#3c8dbc',
+                            borderColor: '#3c8dbc',
                             areaColor: '#ffffff'
                         },
                         emphasis: {
@@ -305,10 +306,10 @@ angular.module("ccController", [])
                     itemStyle: {
                         normal: {
                             color: function(params) {
-                                if(params.data.name == '海门'||params.data.name == '海门4'||params.data.name == '海门6'||params.data.name == '海门1'||params.data.name == '非洲'){
+                                if (params.data.name == '海门' || params.data.name == '海门4' || params.data.name == '海门6' || params.data.name == '海门1' || params.data.name == '非洲') {
 
-                                 return '#faa4c7';  
-                                }else{
+                                    return '#faa4c7';
+                                } else {
                                     return '#fdc343';
                                 }
                             }
@@ -367,7 +368,7 @@ angular.module("ccController", [])
                     data: ['价格', '原材料产量', '原材料需求']
                 },
                 xAxis: [{
-                   
+
                     type: 'category',
                     data: ['2017', '2018', '2019', '2020', '2021', '2022', '2023']
                 }],
@@ -392,8 +393,8 @@ angular.module("ccController", [])
                         radius: '50%',
                         name: '价格',
                         type: 'bar',
-                        barWidth:60,
-                        data: [1100, 1400, 1100, 1500, 1600,1200,1620]
+                        barWidth: 60,
+                        data: [1100, 1400, 1100, 1500, 1600, 1200, 1620]
                     }, {
                         radius: '50%',
                         name: '原材料产量',
@@ -403,8 +404,25 @@ angular.module("ccController", [])
                                 color: ['rgba(40, 145, 241, 0.3)']
                             }
                         },
+                        label: {
+                            normal: {
+                                show: true,
+                                textStyle: {
+                                    fontSize: 8,
+                                    color: ['rgba(40, 145, 241)']
+                                },
+                                position: 'bottom',
+                                formatter: function(value, index) {
+                                    if (value.data == 765) {
+                                        return value.data;
+                                    } else {
+                                        return '';
+                                    }
 
-                        data: [0,900, 700, 1500, 765, 1200,620]
+                                }
+                            }
+                        },
+                        data: [0, 900, 700, 1500, 765, 1200, 620]
                     }, {
                         radius: '50%',
                         name: '原材料需求',
@@ -415,12 +433,126 @@ angular.module("ccController", [])
                             }
                         },
                         yAxisIndex: 1,
-                        data: [0,700, 400,1200, 900, 200, 800]
+                        data: [0, 700, 400, 1200, 900, 200, 800]
                     }
                 ]
             };
+            option3 = {
+                backgroundColor: '#ffffff', //背景色
+                tooltip: {
+                    trigger: 'axis'
+                },
+                grid: {
+                    left: 'left',
+                    top: '12%',
+                    containLabel: true
+                },
+                color: ['#fecc7d', '#2891f1', '#f8c042'
 
-            myChart.setOption(option);
-            myChart2.setOption(option2);
+                ],
+                calculable: true,
+                legend: {
+                    left: '65%',
+                    data: ['价格', '原材料产量', '原材料需求']
+                },
+                xAxis: [{
 
-        });
+                    type: 'category',
+                    data: ['2017', '2018', '2019', '2020', '2021', '2022', '2023']
+                }],
+                yAxis: [{
+                    max: 2000,
+                    type: 'value',
+                    name: '价格',
+                    axisLabel: {
+                        formatter: '{value}'
+                    }
+                }, {
+                    max: 2000,
+                    type: 'value',
+                    name: '产量',
+                    axisLabel: {
+                        formatter: '{value}'
+                    }
+                }],
+                series: [
+
+                    {
+                        radius: '50%',
+                        name: '价格',
+                        type: 'bar',
+                        barWidth: 60,
+                        data: [1100, 1400, 1100, 1500, 1600, 1200, 1620]
+                    }, {
+                        radius: '50%',
+                        name: '原材料产量',
+                        type: 'line',
+                        areaStyle: {
+                            normal: {
+                                color: ['rgba(40, 145, 241, 0.3)']
+                            }
+                        },
+                        data: [0, 900, 700, 1500, 765, 1200, 620]
+                    }, {
+                        radius: '50%',
+                        name: '原材料需求',
+                        type: 'line',
+                        areaStyle: {
+                            normal: {
+                                color: ['rgba(254, 204, 125, 0.3)']
+                            }
+                        },
+                        yAxisIndex: 1,
+                        data: [0, 700, 400, 1200, 900, 200, 800]
+                    }
+                ]
+            };
+            myChart2.on('click', function(params) {
+                if (params.value == 1600 || params.value == 765) {
+                    $scope.isLowShow = true;
+                    $scope.$apply();
+                    myChart2.setOption(option2);
+                } else {
+                    $scope.isLowShow = false;
+                    $scope.$apply();
+                    myChart2.setOption(option2);
+                }
+            });
+            $scope.isIndex10 = true;
+            $scope.isIndex11 = false;
+            $scope.isIndex12 = false;
+            $scope.onTabClick2 = function(index) {
+                switch (index) {
+                    case 0:
+                        $scope.isIndex10 = true;
+                        $scope.isIndex11 = false;
+                        $scope.isIndex12 = false;
+                        option3.series[0].data = price1;
+                        option3.series[1].data = require1;
+                        option3.series[2].data = make1;
+                        break;
+                    case 1:
+                        $scope.isIndex10 = false;
+                        $scope.isIndex11 = true;
+                        $scope.isIndex12 = false;
+                        option3.series[0].data = price2;
+                        option3.series[1].data = require2;
+                        option3.series[2].data = make2;
+                        break;
+                    case 2:
+                        $scope.isIndex10 = false;
+                        $scope.isIndex11 = false;
+                        $scope.isIndex12 = true;
+                        option3.series[0].data = price3;
+                        option3.series[1].data = require3;
+                        option3.series[2].data = make3;
+                        break;
+
+                }
+                 myChart3.setOption(option3);
+            }
+                myChart.setOption(option);
+                myChart2.setOption(option2);
+                var myChart3 = echarts.init(document.getElementById('low'));
+                myChart3.setOption(option3);
+            });

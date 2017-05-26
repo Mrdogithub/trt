@@ -10179,8 +10179,8 @@ input:focus, textarea:focus, select:focus {
 #u820 {
     position: absolute;
     top:50%;
-    margin-top: -240px;
-    margin-left: -580px;
+    margin-top: -150px;
+    margin-left: -530px;
     left: 59%;
     z-index:99999;
 }
@@ -10188,8 +10188,8 @@ input:focus, textarea:focus, select:focus {
 #r820 {
     position: absolute;
     top:50%;
-    margin-top: -180px;
-    margin-left: -580px;
+    margin-top: -90px;
+    margin-left: -530px;
     left: 59%;
     z-index:99999;
 }
@@ -10197,8 +10197,8 @@ input:focus, textarea:focus, select:focus {
 #r830 {
     position: absolute;
     top:50%;
-    margin-top: -140px;
-    margin-left: -500px;
+    margin-top: -50px;
+    margin-left: -480px;
     left: 59%;
     z-index:99999;
 }
@@ -10206,8 +10206,8 @@ input:focus, textarea:focus, select:focus {
 #r840 {
     position: absolute;
     top:50%;
-    margin-top: -40px;
-    margin-left: -600px;
+    margin-top: 40px;
+    margin-left: -550px;
     left: 59%;
     z-index:99999;
 }
@@ -10432,8 +10432,8 @@ input:focus, textarea:focus, select:focus {
 #u125 {
  position: absolute;
     top:50%;
-    margin-top: -225px;
-    margin-left: 250px;
+    margin-top: -175px;
+    margin-left: 230px;
     left: 40%;
     z-index:99999;
 }
@@ -10441,8 +10441,8 @@ input:focus, textarea:focus, select:focus {
 #q820 {
  position: absolute;
     top:50%;
-    margin-top: -225px;
-    margin-left: 360px;
+    margin-top: -175px;
+    margin-left: 340px;
     left: 40%;
     z-index:99999;
 }
@@ -10450,8 +10450,8 @@ input:focus, textarea:focus, select:focus {
 #q830 {
     position: absolute;
     top:50%;
-    margin-top: -275px;
-    margin-left: 390px;
+    margin-top: -225px;
+    margin-left: 360px;
     left: 40%;
     z-index:99999;
 }
@@ -10459,8 +10459,8 @@ input:focus, textarea:focus, select:focus {
 #q840 {
     position: absolute;
     top:50%;
-    margin-top: -250px;
-    margin-left: 370px;
+    margin-top: -200px;
+    margin-left: 350px;
     left: 40%;
     z-index:99999;
 }
@@ -10704,3 +10704,59 @@ input:focus, textarea:focus, select:focus {
   top:0px;
   width:20px;
   height:20px;
+}
+.h37 {
+    width: 200px;
+    height: 20px;
+    padding-top: 8px;
+    font-family: 'Microsoft YaHei';
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    display: inline;
+    float: left;
+    text-align: center
+}
+#h24 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left:-400px;
+    margin-top: -290px;
+    z-index: 99;
+    width: 190px;
+    height: 150px;
+    padding-bottom: 10px;
+    background: #f8f8f8;
+    border-bottom: 1PX solid #e8eaf2;
+}
+.h38 {
+    width: 200px;
+    height: 20px;
+    margin-left: 6px;
+    margin-top: 6px;
+    font-family: 'Microsoft YaHei';
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    display: inline;
+    float: left;
+    text-align: center;
+}
+
+.h38.active {
+    background: #d1e6ff;
+}
+.h36 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    margin-left:-400px;
+    margin-top: -330px;
+    font-family: 'Microsoft YaHei';
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    background: url(../images/u32.png) no-repeat
+}
