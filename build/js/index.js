@@ -16,7 +16,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', function (
 	})
 	.state('consumer.overView',{ //首页
 		url:'consumer/overView',
-		templateUrl:'consumerModule/overView.html',
+		templateUrl:'consumerModule/overview.html',
 		controller:'overViewController'
 	})
 	.state('consumer.userSearch',{ //用户视图搜索
