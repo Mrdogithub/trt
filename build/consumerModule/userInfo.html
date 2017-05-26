@@ -4,12 +4,56 @@
 		<table class = "table">
 			<tr>
 				<td width = "260">会员卡号</td>
-				<td>902225578</td>
+				<td>{{userInfo.hyk_No || "--"}}</td>
+			</tr>
+			<tr> 
+				<td>姓名</td>
+				<td>{{userInfo.hyk_name || "--"}}</td>
 			</tr>
 			<tr>
-				<td>姓名</td>
-				<td>同仁堂</td>
-			</tr>						
+				<td>性别</td>
+				<td>{{userInfo.sex || "--"}}</td>
+			</tr>	
+			<tr>
+				<td>出生日期</td>
+				<td>{{userInfo.csrq || "--"}}</td>
+			</tr>	
+			<tr>
+				<td>婚姻状况</td>
+				<td>{{(userInfo.status == "1" ? "已婚":"未婚") || "--"}}</td>
+			</tr>	
+			<tr>
+				<td>身份证号</td>
+				<td>{{userInfo.sfzbh ||"--"}}</td>
+			</tr>	
+			<tr>
+				<td>国籍</td>
+				<td>--</td>
+			</tr>	
+			<tr>
+				<td>民族</td>
+				<td>--</td>
+			</tr>	
+			<tr>
+				<td>籍贯</td>
+				<td>--</td>
+			</tr>	
+			<tr>
+				<td>住址</td>
+				<td>{{userInfo.txdz || "--"}}</td>
+			</tr>
+			<tr>
+				<td>联系人姓名</td>
+				<td>{{userInfo.tjrmc || "--"}}</td>
+			</tr>
+			<tr>
+				<td>联系人关系</td>
+				<td>--</td>
+			</tr>
+			<tr>
+				<td>联系人电话</td>
+				<td>--</td>
+			</tr>																																							
 		</table>
 	</div>
 </div>

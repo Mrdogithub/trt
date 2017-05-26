@@ -1,6 +1,6 @@
 angular.module("ccController", [])
         .controller("ccController", function($scope, $http) {
-            $scope.isIndex0 = true;
+         $scope.isIndex0 = true;
             $scope.isIndex1 = false;
             $scope.isIndex2 = false;
             $scope.selectDate = '2017';
@@ -59,7 +59,7 @@ angular.module("ccController", [])
                 "海门3": [130.15, 50],
                 "海门4": [120.15, 35.89],
                 "海门5": [85.15, 25.89]
-                
+
             };
             var piontCount = 0;
             var price1 = [900, 1300, 1200, 1200, 1600];
@@ -71,7 +71,7 @@ angular.module("ccController", [])
             var make1 = [700, 1000, 1100, 1600, 1600];
             var make2 = [1200, 1400, 1500, 1100, 1700];
             var make3 = [1000, 1200, 1100, 1500, 1300];
-
+           
             var convertData = function(data) {
                 var res = [];
                 var tmpGeoCoordMap = geoCoordMap;
@@ -194,8 +194,39 @@ angular.module("ccController", [])
             $scope.count2 = 0;
             var myChart = echarts.init(document.getElementById('main'));
             var myChart2 = echarts.init(document.getElementById('pic'));
+            $scope.isBeijingShow = false;
+            $scope.isShanghaiShow = false;
+            $scope.isZhengzhouShow = false;
+            $scope.isGuangzhouShow = false;
             myChart.on('click', function(params) {
+                if (params.name == '海门3') {
+                    $scope.isBeijingShow = true;
+                    $scope.isShanghaiShow = false;
+                    $scope.isZhengzhouShow = false;
+                    $scope.isGuangzhouShow = false;
+                } else if (params.name == '海门4') {
+                    $scope.isBeijingShow = false;
+                    $scope.isShanghaiShow = true;
+                    $scope.isZhengzhouShow = false;
+                    $scope.isGuangzhouShow = false;
+                } else if (params.name == '海门6') {
+                    $scope.isBeijingShow = false;
+                    $scope.isShanghaiShow = false;
+                    $scope.isZhengzhouShow = true;
+                    $scope.isGuangzhouShow = false;
+                } else if (params.name == '非洲') {
+                    $scope.isBeijingShow = false;
+                    $scope.isShanghaiShow = false;
+                    $scope.isZhengzhouShow = false;
+                    $scope.isGuangzhouShow = true;
+                } else {
+                    $scope.isBeijingShow = false;
+                    $scope.isShanghaiShow = false;
+                    $scope.isZhengzhouShow = false;
+                    $scope.isGuangzhouShow = false;
 
+                }
+                $scope.$apply();
                 if ($scope.count == 0) {
                     option2.series[0].data = price1;
                     option2.series[1].data = require1;
@@ -217,13 +248,13 @@ angular.module("ccController", [])
             option = {
                 backgroundColor: '#3c8dbc', //背景色
                 // 缩放漫游组件，仅对地图有效  
-                tooltip: {
+                // tooltip: {
 
-                    trigger: 'item',
-                    formatter: function(params) {
-                        return params.value[2];
-                    }
-                },
+                //     trigger: 'item',
+                //     formatter: function(params) {
+                //         return params.value[2];
+                //     }
+                // },
                 roamController: {
                     // 显示策略，可选为：true（显示） | false（隐藏）  
                     show: true,
@@ -261,11 +292,11 @@ angular.module("ccController", [])
                     },
                     itemStyle: {
                         normal: {
-                            areaColor: '#ffffff',
-                            borderColor: '#111'
+                            borderColor:'#3c8dbc',
+                            areaColor: '#ffffff'
                         },
                         emphasis: {
-                            areaColor: '#ffffff'
+                            areaColor: '#bbd9e9'
                         }
                     }
                 },
@@ -273,7 +304,15 @@ angular.module("ccController", [])
                     symbolSize: 20,
                     itemStyle: {
                         normal: {
-                            color: '#faa4c7'
+                            color: function(params) {
+                                if(params.data.name == '海门'||params.data.name == '海门4'||params.data.name == '海门6'||params.data.name == '海门1'||params.data.name == '非洲'){
+
+                                 return '#faa4c7';  
+                                }else{
+                                    return '#fdc343';
+                                }
+                            }
+
                         }
                     },
                     type: 'scatter',
@@ -328,18 +367,19 @@ angular.module("ccController", [])
                     data: ['价格', '原材料产量', '原材料需求']
                 },
                 xAxis: [{
-                    min: 'dataMin',
-                    max: 'dataMax',
+                   
                     type: 'category',
-                    data: ['2017', '2018', '2019', '2020', '2021']
+                    data: ['2017', '2018', '2019', '2020', '2021', '2022', '2023']
                 }],
                 yAxis: [{
+                    max: 2000,
                     type: 'value',
                     name: '价格',
                     axisLabel: {
                         formatter: '{value}'
                     }
                 }, {
+                    max: 2000,
                     type: 'value',
                     name: '产量',
                     axisLabel: {
@@ -352,7 +392,8 @@ angular.module("ccController", [])
                         radius: '50%',
                         name: '价格',
                         type: 'bar',
-                        data: [1000, 1400, 1100, 1500, 1600]
+                        barWidth:60,
+                        data: [1100, 1400, 1100, 1500, 1600,1200,1620]
                     }, {
                         radius: '50%',
                         name: '原材料产量',
@@ -363,7 +404,7 @@ angular.module("ccController", [])
                             }
                         },
 
-                        data: [1000, 1200, 1400, 1100, 1300]
+                        data: [0,900, 700, 1500, 765, 1200,620]
                     }, {
                         radius: '50%',
                         name: '原材料需求',
@@ -374,7 +415,7 @@ angular.module("ccController", [])
                             }
                         },
                         yAxisIndex: 1,
-                        data: [500, 1000, 1500, 1100, 1200]
+                        data: [0,700, 400,1200, 900, 200, 800]
                     }
                 ]
             };

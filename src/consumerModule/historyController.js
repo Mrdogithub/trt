@@ -1,5 +1,13 @@
 angular.module('historyController',[])
-.controller('historyController',function ($scope) {
+.controller('historyController',function ($scope,httpFactory) {
+    $scope.history = {
+        "show":showFn,
+        "result":data
+    }
+    httpFactory.getUserGoodsHistory().then(function (res){
+        $scope.history.result = res.data;
+    });
+
 	var data = [
 	  {
         "hyk_no": "110359",
@@ -32,10 +40,7 @@ angular.module('historyController',[])
         "zkje_hy": "0"
     }
 	]
-	$scope.history = {
-		"show":showFn,
-		"result":data
-	}
+
 
 	function showFn (currentId,status) {
 

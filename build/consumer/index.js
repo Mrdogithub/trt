@@ -192,7 +192,15 @@ angular.module("featureController", [])
 
     });
 angular.module('historyController',[])
-.controller('historyController',function ($scope) {
+.controller('historyController',function ($scope,httpFactory) {
+    $scope.history = {
+        "show":showFn,
+        "result":data
+    }
+    httpFactory.getUserGoodsHistory().then(function (res){
+        $scope.history.result = res.data;
+    });
+
 	var data = [
 	  {
         "hyk_no": "110359",
@@ -225,10 +233,7 @@ angular.module('historyController',[])
         "zkje_hy": "0"
     }
 	]
-	$scope.history = {
-		"show":showFn,
-		"result":data
-	}
+
 
 	function showFn (currentId,status) {
 
@@ -249,15 +254,90 @@ angular.module('historyController',[])
 
 	}
 });
+    angular.module('httpFactory',['constantModule'])
+.factory('httpFactory',function ($http,SERVER) {
+	var url = SERVER.url;
+	var httpFactory = {
+		"getUserInfo":getUserInfoHttp,
+		"getUserGoodsHistory":getUserGoodsHistoryHttp,
+		"getUserHealthSuggestion":getUserHealthSuggestionHttp,
+	}
+
+	function getUserInfoHttp () {
+		var targetUrl = "";
+		if(SERVER.isDev){
+			targetUrl= SERVER.dev+"userInfo.json";
+			
+		} else {
+			targetUrl= SERVER.pro+"getAllMemberBaseInfoList.do";
+		}
+		return $http({ method: 'GET',url:targetUrl});
+	}
+
+	function getUserGoodsHistoryHttp (){
+		var targetUrl = "";
+		if(SERVER.isDev){
+			targetUrl= SERVER.dev+"history.json";
+			
+		} else {
+			targetUrl= SERVER.pro+"getAllMemberBaseInfoList.do";
+		}
+		console.log(1,targetUrl)
+		return $http({ method: 'GET',url:targetUrl});
+	}
+
+	function getUserHealthSuggestionHttp () {
+		
+	}
+
+	return httpFactory;
+}); 
 'use stirct';
 angular.module("overViewController", [])
         .controller("overViewController", function($scope, $http) {
+            $scope.isBeijingShow = false;
+            $scope.isShanghaiShow = false;
+            $scope.isZhengzhouShow = false;
+            $scope.isGuangzhouShow = false;
+
             var myChart6 = echarts.init(document.getElementById('shell'));
             var myChart5 = echarts.init(document.getElementById('devices'));
             var myChart4 = echarts.init(document.getElementById('map'));
             var myChart3 = echarts.init(document.getElementById('platform'));
             var myChart2 = echarts.init(document.getElementById('pic'));
             var myChart = echarts.init(document.getElementById('pie'));
+            myChart4.on('click', function(params) {
+                console.log($scope.isShow);
+                console.log(params.name);
+                if (params.name == '北京') {
+                    $scope.isBeijingShow = true;
+                    $scope.isShanghaiShow = false;
+                    $scope.isZhengzhouShow = false;
+                    $scope.isGuangzhouShow = false;
+                } else if (params.name == '上海') {
+                    $scope.isBeijingShow = false;
+                    $scope.isShanghaiShow = true;
+                    $scope.isZhengzhouShow = false;
+                    $scope.isGuangzhouShow = false;
+                } else if (params.name == '郑州') {
+                    $scope.isBeijingShow = false;
+                    $scope.isShanghaiShow = false;
+                    $scope.isZhengzhouShow = true;
+                    $scope.isGuangzhouShow = false;
+                } else if (params.name == '广州') {
+                    $scope.isBeijingShow = false;
+                    $scope.isShanghaiShow = false;
+                    $scope.isZhengzhouShow = false;
+                    $scope.isGuangzhouShow = true;
+                } else {
+                    $scope.isBeijingShow = false;
+                    $scope.isShanghaiShow = false;
+                    $scope.isZhengzhouShow = false;
+                    $scope.isGuangzhouShow = false;
+
+                }
+                $scope.$apply();
+            });
             var labelTop = {
                 normal: {
                     label: {
@@ -527,7 +607,7 @@ angular.module("overViewController", [])
                             },
                             position: 'right',
                             formatter: function(value, index) {
-                                return  value.data;
+                                return value.data;
                             }
                         }
                     },
@@ -988,22 +1068,22 @@ angular.module("overViewController", [])
                         color: '#fff'
                     }
                 },
-                 grid: {
+                grid: {
                     left: 'left',
-                       
+
                     bottom: '10',
                     containLabel: true
                 },
                 geo: {
                     layoutCenter: ['40%', '50%'],
-                     layoutSize: 550,
+                    layoutSize: 550,
                     map: 'china',
+                    roam: false,
                     label: {
                         emphasis: {
                             show: false
                         }
                     },
-                    roam: false,
                     itemStyle: {
                         normal: {
                             areaColor: '#323c48',
@@ -1016,12 +1096,13 @@ angular.module("overViewController", [])
                 },
                 series: [{
                     type: 'scatter',
+                    roam: false,
                     coordinateSystem: 'geo',
                     data: convertData(data),
                     symbolSize: function(val) {
                         return val[2] / 10;
                     },
-                    
+
                     itemStyle: {
                         normal: {
                             color: '#ddb926'
@@ -1029,6 +1110,7 @@ angular.module("overViewController", [])
                     }
                 }, {
                     name: 'Top 5',
+                    roam: false,
                     type: 'effectScatter',
                     coordinateSystem: 'geo',
                     data: convertData(data.sort(function(a, b) {
@@ -1042,7 +1124,7 @@ angular.module("overViewController", [])
                         brushType: 'stroke'
                     },
                     hoverAnimation: true,
-                  
+
                     itemStyle: {
                         normal: {
                             color: '#f4e925',
@@ -1068,7 +1150,7 @@ angular.module("productInfoController", [])
         $scope.load = function() {
             $http({
                 method: 'GET',
-                url: 'itemDetails.json'
+                url: './data/itemDetails.json'
             }).then(function successCallback(response) {
                 angular.forEach(response.data.list, function(item) {
                     var tempOpt = {};
@@ -1107,7 +1189,7 @@ angular.module("productInfoController", [])
     });
    angular.module("productSaleController", [])
         .controller("productSaleController", function($scope, $http) {
-            var myChart2 = echarts.init(document.getElementById('pic'));
+          var myChart2 = echarts.init(document.getElementById('pic'));
             option = {
                 title: {
                     left: 'center',
@@ -1129,13 +1211,16 @@ angular.module("productInfoController", [])
 
                 calculable: true,
                 xAxis: [{
+                    min: '2016',
+                    max: '2022',
+                    splitNumber:5,
                     type: 'category',
                     boundaryGap: false,
-                    data: ['2017', '2018', '2019', '2020', '2021']
+                    data: ['2016','2017','2018','2019','2020','2021','2022']
                 }],
                 yAxis: [{
                     min: 0,
-                    max: 1500,
+                    max: 2000,
                     type: 'value'
                 }],
                 series: [{
@@ -1146,7 +1231,7 @@ angular.module("productInfoController", [])
                             color: ['rgba(254, 204, 125, 0.3)']
                         }
                     },
-                    data: [500, 800, 750, 1100, 800]
+                    data: [0,700, 450, 1100, 800, 1300,200,900,700]
                 }, {
                     name: '门店销量',
                     type: 'line',            
@@ -1155,12 +1240,11 @@ angular.module("productInfoController", [])
                             color: ['rgba(40, 145, 241, 0.3)']
                         }
                     },
-                    data: [490, 600, 600, 900, 780]
+                    data: [0,900,600,1400,750,900,600,1100,650]
                 }]
             };
 
             myChart2.setOption(option);
-
         });
 angular.module('producViewController',[])
 .controller('producViewController', function ($scope,$timeout) {
@@ -1221,6 +1305,9 @@ angular.module('userSearchController',[])
 
 });
 angular.module('userinfoController',[])
-.controller('userinfoController',function($scope){
-	$scope.pageClass = "pageAnimate";
+.controller('userinfoController',function($scope,$timeout,httpFactory){
+	$scope.userInfo = {};
+	httpFactory.getUserInfo().then(function (res) {
+		$scope.userInfo = res.data[0];
+	});
 });

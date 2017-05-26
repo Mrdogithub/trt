@@ -5,7 +5,7 @@ angular.module("productInfoController", [])
         $scope.load = function() {
             $http({
                 method: 'GET',
-                url: 'itemDetails.json'
+                url: './data/itemDetails.json'
             }).then(function successCallback(response) {
                 angular.forEach(response.data.list, function(item) {
                     var tempOpt = {};

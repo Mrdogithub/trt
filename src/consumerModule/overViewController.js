@@ -1,11 +1,48 @@
 angular.module("overViewController", [])
         .controller("overViewController", function($scope, $http) {
+            $scope.isBeijingShow = false;
+            $scope.isShanghaiShow = false;
+            $scope.isZhengzhouShow = false;
+            $scope.isGuangzhouShow = false;
+
             var myChart6 = echarts.init(document.getElementById('shell'));
             var myChart5 = echarts.init(document.getElementById('devices'));
             var myChart4 = echarts.init(document.getElementById('map'));
             var myChart3 = echarts.init(document.getElementById('platform'));
             var myChart2 = echarts.init(document.getElementById('pic'));
             var myChart = echarts.init(document.getElementById('pie'));
+            myChart4.on('click', function(params) {
+                console.log($scope.isShow);
+                console.log(params.name);
+                if (params.name == '北京') {
+                    $scope.isBeijingShow = true;
+                    $scope.isShanghaiShow = false;
+                    $scope.isZhengzhouShow = false;
+                    $scope.isGuangzhouShow = false;
+                } else if (params.name == '上海') {
+                    $scope.isBeijingShow = false;
+                    $scope.isShanghaiShow = true;
+                    $scope.isZhengzhouShow = false;
+                    $scope.isGuangzhouShow = false;
+                } else if (params.name == '郑州') {
+                    $scope.isBeijingShow = false;
+                    $scope.isShanghaiShow = false;
+                    $scope.isZhengzhouShow = true;
+                    $scope.isGuangzhouShow = false;
+                } else if (params.name == '广州') {
+                    $scope.isBeijingShow = false;
+                    $scope.isShanghaiShow = false;
+                    $scope.isZhengzhouShow = false;
+                    $scope.isGuangzhouShow = true;
+                } else {
+                    $scope.isBeijingShow = false;
+                    $scope.isShanghaiShow = false;
+                    $scope.isZhengzhouShow = false;
+                    $scope.isGuangzhouShow = false;
+
+                }
+                $scope.$apply();
+            });
             var labelTop = {
                 normal: {
                     label: {
@@ -275,7 +312,7 @@ angular.module("overViewController", [])
                             },
                             position: 'right',
                             formatter: function(value, index) {
-                                return  value.data;
+                                return value.data;
                             }
                         }
                     },
@@ -736,22 +773,22 @@ angular.module("overViewController", [])
                         color: '#fff'
                     }
                 },
-                 grid: {
+                grid: {
                     left: 'left',
-                       
+
                     bottom: '10',
                     containLabel: true
                 },
                 geo: {
                     layoutCenter: ['40%', '50%'],
-                     layoutSize: 550,
+                    layoutSize: 550,
                     map: 'china',
+                    roam: false,
                     label: {
                         emphasis: {
                             show: false
                         }
                     },
-                    roam: false,
                     itemStyle: {
                         normal: {
                             areaColor: '#323c48',
@@ -764,12 +801,13 @@ angular.module("overViewController", [])
                 },
                 series: [{
                     type: 'scatter',
+                    roam: false,
                     coordinateSystem: 'geo',
                     data: convertData(data),
                     symbolSize: function(val) {
                         return val[2] / 10;
                     },
-                    
+
                     itemStyle: {
                         normal: {
                             color: '#ddb926'
@@ -777,6 +815,7 @@ angular.module("overViewController", [])
                     }
                 }, {
                     name: 'Top 5',
+                    roam: false,
                     type: 'effectScatter',
                     coordinateSystem: 'geo',
                     data: convertData(data.sort(function(a, b) {
@@ -790,7 +829,7 @@ angular.module("overViewController", [])
                         brushType: 'stroke'
                     },
                     hoverAnimation: true,
-                  
+
                     itemStyle: {
                         normal: {
                             color: '#f4e925',

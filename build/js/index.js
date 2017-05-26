@@ -1,5 +1,11 @@
 'use strict';
-angular.module('app',['ui.router','ngAnimate','ui.bootstrap','headerModule', 'letMenuModule','leftMenuModulePro','featureController','dataDashboardController','productSaleController','ccController','userinfoController','userSearchController','overViewController','productInfoController','producViewController','historyController']);
+angular.module('app',['ui.router','ngAnimate','ui.bootstrap','headerModule', 'letMenuModule','leftMenuModulePro','featureController','dataDashboardController','productSaleController','ccController','userinfoController','userSearchController','overViewController','productInfoController','producViewController','historyController','constantModule','httpFactory']);
+angular.module('constantModule',[])
+.constant('SERVER',{
+	"dev":"./data/",
+	"pro":"./TRTDataInsight/",
+	"isDev":true
+})
 'use strict';
 
 angular.module('app').config(['$stateProvider', '$urlRouterProvider', function ($stateProvider,$urlRouterProvider) {

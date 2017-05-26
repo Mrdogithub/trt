@@ -1,6 +1,6 @@
    angular.module("productSaleController", [])
         .controller("productSaleController", function($scope, $http) {
-            var myChart2 = echarts.init(document.getElementById('pic'));
+          var myChart2 = echarts.init(document.getElementById('pic'));
             option = {
                 title: {
                     left: 'center',
@@ -22,13 +22,16 @@
 
                 calculable: true,
                 xAxis: [{
+                    min: '2016',
+                    max: '2022',
+                    splitNumber:5,
                     type: 'category',
                     boundaryGap: false,
-                    data: ['2017', '2018', '2019', '2020', '2021']
+                    data: ['2016','2017','2018','2019','2020','2021','2022']
                 }],
                 yAxis: [{
                     min: 0,
-                    max: 1500,
+                    max: 2000,
                     type: 'value'
                 }],
                 series: [{
@@ -39,7 +42,7 @@
                             color: ['rgba(254, 204, 125, 0.3)']
                         }
                     },
-                    data: [500, 800, 750, 1100, 800]
+                    data: [0,700, 450, 1100, 800, 1300,200,900,700]
                 }, {
                     name: '门店销量',
                     type: 'line',            
@@ -48,10 +51,9 @@
                             color: ['rgba(40, 145, 241, 0.3)']
                         }
                     },
-                    data: [490, 600, 600, 900, 780]
+                    data: [0,900,600,1400,750,900,600,1100,650]
                 }]
             };
 
             myChart2.setOption(option);
-
         });

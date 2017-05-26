@@ -1,11 +1,236 @@
 <div>
-	<div id="u24" ng-if="isShow">
-	    <div class="u37">{{selectDate}}</div>
-	    <div><HR></HR></div>
-	    <div class="u38" ng-repeat="item in dateLists" ng-class="{active:item.checked}" ng-click="onDateClick($index)">{{item.date}}</div>
+	<div class = "datePicker">
+		<div class="u36" ng-click="onDateSpinnerClick()">
+    		<p style="margin-top: 6px;margin-left: 30px">{{selectDate}}</p>
+	    </div>
+		<div id="u24" class = "dateList"  ng-if="isShow">
+		    <div class="u37">{{selectDate}}</div>
+		    <div><HR></HR></div>
+		    <div class="u38" ng-repeat="item in dateLists" ng-class="{active:item.checked}" ng-click="onDateClick($index)">{{item.date}}</div>
+		</div>
 	</div>
 	<div id="main" style="width: 100%;height:300px;"></div>
 	<div style="width: 100% height:600px;margin-left: 20px;background: #ffffff ">
 	    <div id="pic" style="width: 1200px; height:600px;margin:0 auto; "></div>
 	</div>
+        <div id="u125" ng-if='isGuangzhouShow'>
+            <div id="u125_state0">
+                <div id="u125_state0_content">
+                    <div id="u126" WidgetHeight="19" WidgetWidth="189" CompoundMode="true">
+                        <img id="u126_img" src="./images/u126.png" />
+                        <div id="u126p000" WidgetTopLeftX="0.0508246551105537" WidgetTopLeftY="-4.22449059232233" WidgetTopRightX="4.73473889962256" WidgetTopRightY="42.5936334127535" WidgetBottomLeftX="-0.472129110966131" WidgetBottomLeftY="0.0133365812837673" WidgetBottomRightX="4.21178513354588" WidgetBottomRightY="46.8314605863596">
+                            <img id="u126p000_img" src="./images/u126p000.png" />
+                        </div>
+                        <div id="u126p001" WidgetTopLeftX="-0.591954022988506" WidgetTopLeftY="0" WidgetTopRightX="0.494252873563218" WidgetTopRightY="0" WidgetBottomLeftX="-0.591954022988506" WidgetBottomLeftY="9.5" WidgetBottomRightX="0.494252873563218" WidgetBottomRightY="9.5">
+                            <img id="u126p001_img" src="./images/u126p001.png" />
+                        </div>
+                        <div id="u126p002" WidgetTopLeftX="0" WidgetTopLeftY="-9.5" WidgetTopRightX="94.5" WidgetTopRightY="-9.5" WidgetBottomLeftX="0" WidgetBottomLeftY="0" WidgetBottomRightX="94.5" WidgetBottomRightY="0">
+                            <img id="u126p002_img" src="./images/u126p002.png" />
+                        </div>
+                        <div id="u126p003" WidgetTopLeftX="-8.40909090909091" WidgetTopLeftY="0" WidgetTopRightX="0.181818181818182" WidgetTopRightY="0" WidgetBottomLeftX="-8.40909090909091" WidgetBottomLeftY="0.863636363636364" WidgetBottomRightX="0.181818181818182" WidgetBottomRightY="0.863636363636364">
+                            <img id="u126p003_img" src="./images/u126p003.png" />
+                        </div>
+                    </div>
+                    <div id="u128">
+                        <div id="u129" style="visibility: visible;">
+                            <p><span>1968</span></p>
+                        </div>
+                    </div>
+                    <div id="u132" class="ax_default _文本段落">
+
+                        <div id="u133" class="text" style="visibility: visible;">
+                            <p><span>29</span></p>
+                        </div>
+                    </div>
+                    <!-- Unnamed (文本段落) -->
+                    <div id="u134" class="ax_default _文本段落">
+                       
+                        <div id="u135" class="text" style="visibility: visible;">
+                            <p><span>208</span></p>
+                        </div>
+                    </div>
+                    <div id="u130">
+                        <img id="u130_img" class="img " src="./images/u130.png" />
+                    </div>
+                    <div id="u132">
+                        <img id="u132_img" src="./images/u132.png" />
+                    </div>
+                    <div id="u134">
+                        <img id="u134_img" class="img " src="./images/u128.png" />
+                    </div>
+                    <div id="u136" class="ax_default icon">
+                        <img id="u136_img" class="img " src="./images/u136.png" />
+                    </div>
+                    <!-- Unnamed (形状) -->
+                    <div id="u138" class="ax_default icon">
+                        <img id="u138_img" class="img " src="./images/u138.png" />
+                    </div>
+                </div>
+            </div>
+        </div>
+         <div id="q820" ng-if='isZhengzhouShow'>
+            <div id="u125_state0">
+                <div id="u125_state0_content">
+                    <div id="u126" WidgetHeight="19" WidgetWidth="189" CompoundMode="true">
+                        <img id="u126_img" src="./images/u126.png" />
+                        <div id="u126p000" WidgetTopLeftX="0.0508246551105537" WidgetTopLeftY="-4.22449059232233" WidgetTopRightX="4.73473889962256" WidgetTopRightY="42.5936334127535" WidgetBottomLeftX="-0.472129110966131" WidgetBottomLeftY="0.0133365812837673" WidgetBottomRightX="4.21178513354588" WidgetBottomRightY="46.8314605863596">
+                            <img id="u126p000_img" src="./images/u126p000.png" />
+                        </div>
+                        <div id="u126p001" WidgetTopLeftX="-0.591954022988506" WidgetTopLeftY="0" WidgetTopRightX="0.494252873563218" WidgetTopRightY="0" WidgetBottomLeftX="-0.591954022988506" WidgetBottomLeftY="9.5" WidgetBottomRightX="0.494252873563218" WidgetBottomRightY="9.5">
+                            <img id="u126p001_img" src="./images/u126p001.png" />
+                        </div>
+                        <div id="u126p002" WidgetTopLeftX="0" WidgetTopLeftY="-9.5" WidgetTopRightX="94.5" WidgetTopRightY="-9.5" WidgetBottomLeftX="0" WidgetBottomLeftY="0" WidgetBottomRightX="94.5" WidgetBottomRightY="0">
+                            <img id="u126p002_img" src="./images/u126p002.png" />
+                        </div>
+                        <div id="u126p003" WidgetTopLeftX="-8.40909090909091" WidgetTopLeftY="0" WidgetTopRightX="0.181818181818182" WidgetTopRightY="0" WidgetBottomLeftX="-8.40909090909091" WidgetBottomLeftY="0.863636363636364" WidgetBottomRightX="0.181818181818182" WidgetBottomRightY="0.863636363636364">
+                            <img id="u126p003_img" src="./images/u126p003.png" />
+                        </div>
+                    </div>
+                    <div id="u128">
+                        <div id="u129" style="visibility: visible;">
+                            <p><span>998</span></p>
+                        </div>
+                    </div>
+                    <div id="u132" class="ax_default _文本段落">
+
+                        <div id="u133" class="text" style="visibility: visible;">
+                            <p><span>30</span></p>
+                        </div>
+                    </div>
+                    <!-- Unnamed (文本段落) -->
+                    <div id="u134" class="ax_default _文本段落">
+                       
+                        <div id="u135" class="text" style="visibility: visible;">
+                            <p><span>208</span></p>
+                        </div>
+                    </div>
+                    <div id="u130">
+                        <img id="u130_img" class="img " src="./images/u130.png" />
+                    </div>
+                    <div id="u132">
+                        <img id="u132_img" src="./images/u132.png" />
+                    </div>
+                    <div id="u134">
+                        <img id="u134_img" class="img " src="./images/u128.png" />
+                    </div>
+                    <div id="u136" class="ax_default icon">
+                        <img id="u136_img" class="img " src="./images/u136.png" />
+                    </div>
+                    <!-- Unnamed (形状) -->
+                    <div id="u138" class="ax_default icon">
+                        <img id="u138_img" class="img " src="./images/u138.png" />
+                    </div>
+                </div>
+            </div>
+        </div>
+         <div id="q840" ng-if='isShanghaiShow'>
+            <div id="u125_state0">
+                <div id="u125_state0_content">
+                    <div id="u126" WidgetHeight="19" WidgetWidth="189" CompoundMode="true">
+                        <img id="u126_img" src="./images/u126.png" />
+                        <div id="u126p000" WidgetTopLeftX="0.0508246551105537" WidgetTopLeftY="-4.22449059232233" WidgetTopRightX="4.73473889962256" WidgetTopRightY="42.5936334127535" WidgetBottomLeftX="-0.472129110966131" WidgetBottomLeftY="0.0133365812837673" WidgetBottomRightX="4.21178513354588" WidgetBottomRightY="46.8314605863596">
+                            <img id="u126p000_img" src="./images/u126p000.png" />
+                        </div>
+                        <div id="u126p001" WidgetTopLeftX="-0.591954022988506" WidgetTopLeftY="0" WidgetTopRightX="0.494252873563218" WidgetTopRightY="0" WidgetBottomLeftX="-0.591954022988506" WidgetBottomLeftY="9.5" WidgetBottomRightX="0.494252873563218" WidgetBottomRightY="9.5">
+                            <img id="u126p001_img" src="./images/u126p001.png" />
+                        </div>
+                        <div id="u126p002" WidgetTopLeftX="0" WidgetTopLeftY="-9.5" WidgetTopRightX="94.5" WidgetTopRightY="-9.5" WidgetBottomLeftX="0" WidgetBottomLeftY="0" WidgetBottomRightX="94.5" WidgetBottomRightY="0">
+                            <img id="u126p002_img" src="./images/u126p002.png" />
+                        </div>
+                        <div id="u126p003" WidgetTopLeftX="-8.40909090909091" WidgetTopLeftY="0" WidgetTopRightX="0.181818181818182" WidgetTopRightY="0" WidgetBottomLeftX="-8.40909090909091" WidgetBottomLeftY="0.863636363636364" WidgetBottomRightX="0.181818181818182" WidgetBottomRightY="0.863636363636364">
+                            <img id="u126p003_img" src="./images/u126p003.png" />
+                        </div>
+                    </div>
+                    <div id="u128">
+                        <div id="u129" style="visibility: visible;">
+                            <p><span>1068</span></p>
+                        </div>
+                    </div>
+                    <div id="u132" class="ax_default _文本段落">
+
+                        <div id="u133" class="text" style="visibility: visible;">
+                            <p><span>29</span></p>
+                        </div>
+                    </div>
+                    <!-- Unnamed (文本段落) -->
+                    <div id="u134" class="ax_default _文本段落">
+                       
+                        <div id="u135" class="text" style="visibility: visible;">
+                            <p><span>188</span></p>
+                        </div>
+                    </div>
+                    <div id="u130">
+                        <img id="u130_img" class="img " src="./images/u130.png" />
+                    </div>
+                    <div id="u132">
+                        <img id="u132_img" src="./images/u132.png" />
+                    </div>
+                    <div id="u134">
+                        <img id="u134_img" class="img " src="./images/u128.png" />
+                    </div>
+                    <div id="u136" class="ax_default icon">
+                        <img id="u136_img" class="img " src="./images/u136.png" />
+                    </div>
+                    <!-- Unnamed (形状) -->
+                    <div id="u138" class="ax_default icon">
+                        <img id="u138_img" class="img " src="./images/u138.png" />
+                    </div>
+                </div>
+            </div>
+        </div>
+         <div id="q830" ng-if='isBeijingShow'>
+            <div id="u125_state0">
+                <div id="u125_state0_content">
+                    <div id="u126" WidgetHeight="19" WidgetWidth="189" CompoundMode="true">
+                        <img id="u126_img" src="./images/u126.png" />
+                        <div id="u126p000" WidgetTopLeftX="0.0508246551105537" WidgetTopLeftY="-4.22449059232233" WidgetTopRightX="4.73473889962256" WidgetTopRightY="42.5936334127535" WidgetBottomLeftX="-0.472129110966131" WidgetBottomLeftY="0.0133365812837673" WidgetBottomRightX="4.21178513354588" WidgetBottomRightY="46.8314605863596">
+                            <img id="u126p000_img" src="./images/u126p000.png" />
+                        </div>
+                        <div id="u126p001" WidgetTopLeftX="-0.591954022988506" WidgetTopLeftY="0" WidgetTopRightX="0.494252873563218" WidgetTopRightY="0" WidgetBottomLeftX="-0.591954022988506" WidgetBottomLeftY="9.5" WidgetBottomRightX="0.494252873563218" WidgetBottomRightY="9.5">
+                            <img id="u126p001_img" src="./images/u126p001.png" />
+                        </div>
+                        <div id="u126p002" WidgetTopLeftX="0" WidgetTopLeftY="-9.5" WidgetTopRightX="94.5" WidgetTopRightY="-9.5" WidgetBottomLeftX="0" WidgetBottomLeftY="0" WidgetBottomRightX="94.5" WidgetBottomRightY="0">
+                            <img id="u126p002_img" src="./images/u126p002.png" />
+                        </div>
+                        <div id="u126p003" WidgetTopLeftX="-8.40909090909091" WidgetTopLeftY="0" WidgetTopRightX="0.181818181818182" WidgetTopRightY="0" WidgetBottomLeftX="-8.40909090909091" WidgetBottomLeftY="0.863636363636364" WidgetBottomRightX="0.181818181818182" WidgetBottomRightY="0.863636363636364">
+                            <img id="u126p003_img" src="./images/u126p003.png" />
+                        </div>
+                    </div>
+                    <div id="u128">
+                        <div id="u129" style="visibility: visible;">
+                            <p><span>468</span></p>
+                        </div>
+                    </div>
+                    <div id="u132" class="ax_default _文本段落">
+
+                        <div id="u133" class="text" style="visibility: visible;">
+                            <p><span>30</span></p>
+                        </div>
+                    </div>
+                    <!-- Unnamed (文本段落) -->
+                    <div id="u134" class="ax_default _文本段落">
+                       
+                        <div id="u135" class="text" style="visibility: visible;">
+                            <p><span>168</span></p>
+                        </div>
+                    </div>
+                    <div id="u130">
+                        <img id="u130_img" class="img " src="./images/u130.png" />
+                    </div>
+                    <div id="u132">
+                        <img id="u132_img" src="./images/u132.png" />
+                    </div>
+                    <div id="u134">
+                        <img id="u134_img" class="img " src="./images/u128.png" />
+                    </div>
+                    <div id="u136" class="ax_default icon">
+                        <img id="u136_img" class="img " src="./images/u136.png" />
+                    </div>
+                    <!-- Unnamed (形状) -->
+                    <div id="u138" class="ax_default icon">
+                        <img id="u138_img" class="img " src="./images/u138.png" />
+                    </div>
+                </div>
+            </div>
+        </div>	
 </div>
