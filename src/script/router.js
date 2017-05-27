@@ -7,7 +7,11 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', function (
 		controller:''
 	})
 	.state('consumer.overView',{ //首页
+<<<<<<< HEAD
 		url:'overView',
+=======
+		url:'consumer/overView',
+>>>>>>> chart
 		templateUrl:'consumerModule/overview.html',
 		controller:'overViewController'
 	})
@@ -49,12 +53,27 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', function (
 	.state('consumer.userView.record',{ // 用户健康档案
 		url:'/record',
 		templateUrl:'consumerModule/record.html',
+		controller:'recordController'
+	})
+	.state('consumer.userView.recordDetail',{ // 用户健康档案
+		url:'/record',
+		templateUrl:'consumerModule/detail.html',
+		controller:'recordController'
+	})	
+	.state('consumer.userView.recordDetail.info',{ // 用户健康档案
+		url:'/info',
+		templateUrl:'consumerModule/info.html',
 		controller:''
 	})
+	.state('consumer.userView.recordDetail.result',{ // 用户健康档案
+		url:'/result',
+		templateUrl:'consumerModule/result.html',
+		controller:''
+	})	
 	.state('consumer.userView.suggestion',{ // 用户健康建议
 		url:'/suggestion',
 		templateUrl:'consumerModule/suggestion.html',
-		controller:''
+		controller:'healthSuggestionController'
 	})
 	.state('consumer.userView.feature',{ // 用户标签
 		url:'/feature',

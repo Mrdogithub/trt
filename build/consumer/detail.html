@@ -1,0 +1,23 @@
+
+<div class = "inner-detail-wrapper">
+	<div class = "head-wrapper">
+		<div class = "goBack"><a ui-sref = "consumer.userView.record" style = "display: inline-block;color: #fff; margin: 10px;width: 90px;font-size: 16px;"> <i class="fa fa-chevron-left" aria-hidden="true"></i> 返回 </a></div>
+		<div class = "xy-active">
+			<div class = "xy" ui-sref = ".info" ui-sref-active = "diseaseAciteve">
+				<div class = "xy-wrapper">
+					<div class = "xy-number"><i class="fa fa-file-text-o" aria-hidden="true" style="font-size: 40px;margin-left: 3px;"></i></div>
+					<div class = "xy-text">详情</div>			
+				</div>
+			</div>
+		</div>
+		<div class = "xt-active">
+			<div class = "xt" ui-sref = ".result" ui-sref-active = "diseaseAciteve">
+				<div class = "xt-wrapper">
+					<div class = "xt-number"><i class="fa fa-pencil-square-o" aria-hidden="true" style = "font-size: 45px;margin-left: 9px;"></i></div>
+					<div class = "xt-text">总结</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div ui-view class = "pageAnimate"></div>
+</div>

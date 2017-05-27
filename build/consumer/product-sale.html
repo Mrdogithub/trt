@@ -1,7 +1,17 @@
-<div class = "product-detail-wrapper">
-	<div class = "product-sale-wrapper">
-		<div style="width: 100% height:600px;margin-left: 20px;background: #ffffff ">
+<div class="product-detail-wrapper">
+    <div class="product-sale-wrapper">
+        <div style="width: 100% height:600px;margin-left: 20px;background: #ffffff ">
             <div id="pic" style="width: 1200px; height:600px;margin:0 auto; "></div>
         </div>
-	</div>
+    </div>
+    <div class="h36" ng-click="onDateSpinnerClick()">
+        <p style="margin-top: 6px;margin-left: 30px">{{area}}</p>
+    </div>
+    <div id="h24" ng-if="isShow">
+        <div class="h38" style="margin-top: 15px" ng-click="onDateClick(0)">华东区</div>
+        <div class="h38" ng-click="onDateClick(1)">华南区</div>
+        <div class="h38" ng-click="onDateClick(2)">华中区</div>
+        <div class="h38" ng-click="onDateClick(3)">本市</div>
+        <div class="h38" ng-click="onDateClick(4)">天津</div>
+    </div>
 </div>

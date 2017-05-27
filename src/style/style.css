@@ -1671,36 +1671,60 @@
 
 #u820 {
     position: absolute;
+<<<<<<< HEAD
     top: 44%;
     margin-top: -240px;
     margin-left: -580px;
+=======
+    top:50%;
+    margin-top: -150px;
+    margin-left: -530px;
+>>>>>>> chart
     left: 59%;
     z-index: 99999;
 }
 
 #r820 {
     position: absolute;
+<<<<<<< HEAD
     top: 44%;
     margin-top: -180px;
     margin-left: -580px;
+=======
+    top:50%;
+    margin-top: -90px;
+    margin-left: -530px;
+>>>>>>> chart
     left: 59%;
     z-index:99999;
 }
 
 #r830 {
     position: absolute;
+<<<<<<< HEAD
     top: 44%;
     margin-top: -140px;
     margin-left: -500px;
+=======
+    top:50%;
+    margin-top: -50px;
+    margin-left: -480px;
+>>>>>>> chart
     left: 59%;
     z-index:99999;
 }
 
 #r840 {
     position: absolute;
+<<<<<<< HEAD
     top: 44%;
     margin-top: -40px;
     margin-left: -600px;
+=======
+    top:50%;
+    margin-top: 40px;
+    margin-left: -550px;
+>>>>>>> chart
     left: 59%;
     z-index:99999;
 }
@@ -1924,36 +1948,60 @@
 
 #u125 {
  position: absolute;
+<<<<<<< HEAD
     top:42%;
     margin-top: -225px;
     margin-left: 250px;
+=======
+    top:50%;
+    margin-top: -175px;
+    margin-left: 230px;
+>>>>>>> chart
     left: 40%;
     z-index:99999;
 }
 
 #q820 {
  position: absolute;
+<<<<<<< HEAD
     top:42%;
     margin-top: -225px;
     margin-left: 360px;
+=======
+    top:50%;
+    margin-top: -175px;
+    margin-left: 340px;
+>>>>>>> chart
     left: 40%;
     z-index:99999;
 }
 
 #q830 {
     position: absolute;
+<<<<<<< HEAD
     top:42%;
     margin-top: -275px;
     margin-left: 390px;
+=======
+    top:50%;
+    margin-top: -225px;
+    margin-left: 360px;
+>>>>>>> chart
     left: 40%;
     z-index:99999;
 }
 
 #q840 {
     position: absolute;
+<<<<<<< HEAD
     top:42%;
     margin-top: -250px;
     margin-left: 370px;
+=======
+    top:50%;
+    margin-top: -200px;
+    margin-left: 350px;
+>>>>>>> chart
     left: 40%;
     z-index:99999;
 }
@@ -2197,3 +2245,59 @@
   top:0px;
   width:20px;
   height:20px;
+}
+.h37 {
+    width: 200px;
+    height: 20px;
+    padding-top: 8px;
+    font-family: 'Microsoft YaHei';
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    display: inline;
+    float: left;
+    text-align: center
+}
+#h24 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left:-400px;
+    margin-top: -290px;
+    z-index: 99;
+    width: 190px;
+    height: 150px;
+    padding-bottom: 10px;
+    background: #f8f8f8;
+    border-bottom: 1PX solid #e8eaf2;
+}
+.h38 {
+    width: 200px;
+    height: 20px;
+    margin-left: 6px;
+    margin-top: 6px;
+    font-family: 'Microsoft YaHei';
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    display: inline;
+    float: left;
+    text-align: center;
+}
+
+.h38.active {
+    background: #d1e6ff;
+}
+.h36 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    margin-left:-400px;
+    margin-top: -330px;
+    font-family: 'Microsoft YaHei';
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    background: url(../images/u32.png) no-repeat
+}
