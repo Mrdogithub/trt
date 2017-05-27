@@ -191,6 +191,18 @@ angular.module("featureController", [])
         $scope.load();
 
     });
+angular.module('healthSuggestionController',[])
+.controller('healthSuggestionController',function($scope,httpFactory){
+	$scope.imageList = {
+		"ystj":["ys_1","ys_2","ys_3"],
+		"ydtj":["yd_1","yd_3","yd_3"],
+		"cptj":["cp_1","cp_2","cp_3"],
+		"jytj":["jy_1","jy_2","jy_3"]
+	}
+	httpFactory.getUserHealthSuggestion().then(function(res){
+		$scope.result = res.data[0];
+	});
+});
 angular.module('historyController',[])
 .controller('historyController',function ($scope,httpFactory) {
     $scope.history = {
@@ -287,7 +299,14 @@ angular.module('historyController',[])
 	}
 
 	function getUserHealthSuggestionHttp () {
-		
+		var targetUrl = "";
+		if(SERVER.isDev){
+			targetUrl= SERVER.dev+"healthSuggestion.json";
+			
+		} else {
+			targetUrl= SERVER.pro+"getAllHealthAdviceList.do.do";
+		}
+		return $http({ method: 'GET',url:targetUrl});
 	}
 
 	return httpFactory;
@@ -1339,6 +1358,32 @@ angular.module('producViewController',[])
 	}
 
 });
+angular.module('recordController',[]).controller('recordController',function($scope,$state){
+	$scope.record = {
+		"list":[
+		{"date":"2017/05/16","name":"北京第一人民医院"},
+		{"date":"2017/05/13","name":"北京第一人民医院"},
+		{"date":"2017/05/11","name":"北京第一人民医院"},
+		{"date":"2017/05/09","name":"北京第一人民医院"},
+		{"date":"2017/05/04","name":"北京第一人民医院"},
+		{"date":"2017/04/16","name":"北京第一人民医院"},
+		{"date":"2017/04/12","name":"北京第一人民医院"},
+		{"date":"2017/04/1","name":"北京第一人民医院"},
+		{"date":"2017/03/23","name":"北京第一人民医院"},
+		{"date":"2017/03/12","name":"北京第一人民医院"},
+		{"date":"2017/02/16","name":"北京第一人民医院"},
+		{"date":"2017/01/12","name":"北京第一人民医院"}
+		],
+		"showDetail":showDetailFn,
+		"parentStatus":true
+	};
+
+	function showDetailFn(){
+		$state.go("consumer.userView.recordDetail.info")
+	}
+
+
+})
 angular.module('userSearchController',[])
 .controller('userSearchController', function ($scope,$timeout) {
 	var data = [

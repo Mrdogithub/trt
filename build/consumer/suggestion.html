@@ -1,19 +1,41 @@
 <div class = "detail-wrapper" style = "background-color:  rgba(250, 250, 250, 1);">
-	<div class = "suggestionItem">
+	<div class = "suggestionItem" ng-if = "result.ystj.length">
 		<h2 class = "title suggestionTitle">今日<strong class = "import">饮食</strong>推荐: 稳定情绪保养心脏</h2>
 		<div class = "flex-wrapper">
-			<div class = "item">
-				<div class = "image"><img src= "./images/3.png"/></div>
-				<div class = "desc">黄豆猪蹄汤--滋补可以如此简单</div>
-			</div>
-			<div class = "item">
-				<div class = "image"><img src= "./images/2.png"/></div>
-				<div class = "desc">土豆玉米浓汤--又补又美味</div>
-			</div>
-			<div class = "item">
-				<div class = "image"><img src= "./images/3.png"/></div>
-				<div class = "desc">黄金排骨汤--又补又美味</div>
+			<div class = "item" ng-repeat = "item in result.ystj track by $index">
+				<div class = "image"><img src= "./images/{{imageList.ystj[$index+1]}}.png"/></div>
+				<div class = "desc">{{item}}</div>
+			</div>	
+		</div>
+	</div>
+
+	<div class = "suggestionItem" ng-if = "result.ydtj.length">
+		<h2 class = "title suggestionTitle">今日<strong style = "color: #007DEE;">运动</strong>推荐: 一天才刚刚开始</h2>
+		<div class = "flex-wrapper">
+			<div class = "item" ng-repeat = "item in result.ydtj track by $index">
+				<div class = "image"><img src= "./images/{{imageList.ydtj[$index+1]}}.png"/></div>
+				<div class = "desc">{{item}}</div>
 			</div>						
 		</div>
 	</div>
+
+	<div class = "suggestionItem" ng-if = "result.cptj.length">
+			<h2 class = "title suggestionTitle">今日<strong style = "color:#FDB414;">产品</strong>推荐: 健康营养，活力满溢</h2>
+			<div class = "flex-wrapper">
+				<div class = "item" ng-repeat = "item in result.cptj track by $index">
+					<div class = "image"><img src= "./images/{{imageList.cptj[$index+1]}}.png"/></div>
+					<div class = "desc">{{item}}</div>
+				</div>						
+			</div>
+	</div>
+
+	<div class = "suggestionItem" ng-if = "result.jytj.length">
+			<h2 class = "title suggestionTitle">今日<strong style = "color:#FF0066;;">就医</strong>推荐: 同仁同德，守护健康</h2>
+			<div class = "flex-wrapper">
+				<div class = "item" ng-repeat = "item in result.jytj track by $index">
+					<div class = "image"><img src= "./images/{{imageList.jytj[$index+1]}}.png"/></div>
+					<div class = "desc">{{item}}</div>
+				</div>						
+			</div>
+	</div>		
 </div>

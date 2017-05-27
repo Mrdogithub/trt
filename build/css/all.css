@@ -8004,6 +8004,27 @@ table.text-center th {
   }
 }
 
+.tabConfig{
+    display: flex;
+    height: 60px;
+}
+.tabConfig .detail{
+    flex: 0 60px;
+    text-align: center;
+}
+.tabConfig .detail .icon{
+    border: 1px solid blue;
+    width: 45px;
+    height: 45px;
+    display: inline-block;
+    border-radius: 50%;
+    text-align: center;
+    padding: 12px;
+    margin-bottom: 5px;
+}
+.tabConfig .detail .icon i{
+    font-size: 20px;
+}
 
 .view-wrapper{
     -moz-box-shadow: 0 0 15px 0 rgba(0,0,0,.1);
@@ -8246,11 +8267,14 @@ input:focus, textarea:focus, select:focus {
 }
 /* SUGGESTION*/
 .suggestionItem .item{
-    flex: 1 auto;
+    flex: 0 430px;
     height: 300px;
     margin: 0px 10px 10px 0px;
     background: #fff;
     margin:0px 10px 10px 0px;
+    -moz-box-shadow: 0 0 15px 0 rgba(0,0,0,.1);
+    -webkit-box-shadow: 0 0 15px 0 rgba(0,0,0,.1);
+    box-shadow: 0 0 15px 0 rgba(0,0,0,.1);
 }
 .suggestionTitle{
     margin-bottom:60px;

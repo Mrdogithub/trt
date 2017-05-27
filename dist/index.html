@@ -1,32 +1,43 @@
 <!DOCTYPE html>
-<html lang="en" ng-app = "app">
+<html>
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta  name = "viewport" content = "initial-scale = 1,maximum-scale = 1,minimum-scale = 1, user-scalable = no">
-	<link rel="stylesheet" type="text/css" href = "vendor/bootstrap/dist/css/bootstrap.min.css"/>
-	<link rel="stylesheet" type="text/css" href="vendor/font-awesome/css/font-awesome.min.css"/>
-	<link rel="stylesheet" type="text/css" href="css/all.css"/>
-	<title>同仁堂</title>
-
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>同仁堂</title>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="stylesheet" type="text/css" href = "vendor/bootstrap/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" type="text/css" href="vendor/font-awesome/css/font-awesome.min.css"/>
+  <link rel="stylesheet" type="text/css" href="css/all.css"/>
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
-	<div class="wrapper">
-		<header-component></header-component>
-		<div ui-view class = "pageAnimate"></div>
-	</div>
-	<script type="text/javascript" src = "vendor/angular/angular.min.js"></script>
-	
-	<script type="text/javascript" src = "vendor/angular-ui-router/release/angular-ui-router.min.js"></script>
-	<script type="text/javascript" src = "vendor/angular-bootstrap/ui-bootstrap.min.js"></script>
-	<script type="text/javascript" src = "vendor/echarts/dist/echarts.min.js"></script>
-	<script type="text/javascript" src = "vendor/echarts/map/js/world.js"></script>
-	<script type="text/javascript" src = "vendor/echarts/map/js/china.js"></script>
-	<script type="text/javascript" src = "js/index.js"></script>
-	<script type="text/javascript" src = "common/index.js"></script>
-	<script type="text/javascript" src = "consumer/index.js"></script>
-	<script type="text/javascript" src = "supplier/index.js"></script>
-	<script type="text/javascript" src = "vendor/angular-animate/angular-animate.min.js"></script>
-	<script type="text/javascript" src = "vendor/jquery/dist/jquery.min.js"></script>
+<body class="hold-transition login-page" style = "background:#fff;">
+<div class="login-box">
+  <div class="login-box-body" style = "-moz-box-shadow: 0 0 15px 0 rgba(0,0,0,.1);
+    -webkit-box-shadow: 0 0 15px 0 rgba(0,0,0,.1);
+    box-shadow: 0 0 15px 0 rgba(0,0,0,.1);">
+    <p class="login-box-msg" style = "background-color: rgba(0, 125, 238, 1);margin-bottom: 20px;">
+      
+      <img src="images/trtlogo.jpeg" width="120" height="auto" style="margin-top:20px;">
+    </p>
+
+    <form method="post">
+      <div class="form-group has-feedback">
+        <input type="text" class="form-control" placeholder="用户名">
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+        <input type="password" class="form-control" placeholder="密码">
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+      </div>
+      <div class="row">
+
+        <div class="col-xs-4">
+          <a href = "home.html" class="btn btn-primary btn-block btn-flat" style = "background-color: rgba(0, 125, 238, 1);">登录</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<script type="text/javascript" src = "vendor/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src = "vendor/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

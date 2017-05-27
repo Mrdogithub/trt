@@ -31,7 +31,14 @@
 	}
 
 	function getUserHealthSuggestionHttp () {
-		
+		var targetUrl = "";
+		if(SERVER.isDev){
+			targetUrl= SERVER.dev+"healthSuggestion.json";
+			
+		} else {
+			targetUrl= SERVER.pro+"getAllHealthAdviceList.do.do";
+		}
+		return $http({ method: 'GET',url:targetUrl});
 	}
 
 	return httpFactory;
