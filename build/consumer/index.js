@@ -1,185 +1,209 @@
 angular.module("dataDashboardController", [])
     .controller("dataDashboardController", function($scope) {
-
+         $scope.data11 ={};
+            $scope.data ={};
         $scope.load = function() {
             $scope.myVar = window.setInterval(myTimer,  5000);
             $scope.count = 0;
 
-            function  myTimer() {    
+            function  myTimer() {   
+                console.log("1"); 
                 if ($scope.count == 0) {
-                  console.log("0");
-                    $scope.data = $scope.data1;
+                    $scope.data11 = data1;
                     $scope.count++;
                 } else if ($scope.count == 1) {
-                  console.log("1");
-                    $scope.data = $scope.data2;
+                     $scope.data11 = data2;
                     $scope.count++;
+                    
                 } else if ($scope.count == 2) {
-                  console.log("2");
-                    $scope.data = $scope.data3;
+                    $scope.data11 = data3;
+                    $scope.count++;
+                }else if ($scope.count == 3) {
+                    $scope.data11 = data4;
+                    $scope.count++;
+                } else if ($scope.count == 4) {
+                    $scope.data11 = data5;
+                    $scope.count++;
+                } else if ($scope.count == 5) {
+                    $scope.data11 = data6;
+                    $scope.count++;
+                } else if ($scope.count == 6) {
+                    $scope.data11 = data7;
+                    $scope.count++;
+                } else if ($scope.count == 7) {
+                    $scope.data11 = data8;
+                    $scope.count++;
+                } else if ($scope.count == 8) {
+                    $scope.data11 = data9;
+                    $scope.count++;
+                } else if ($scope.count == 9) {
+                    $scope.data11 = data10;
                     $scope.count = 0;
-                }
-                $scope. myDate=new Date();
+                } 
+                $scope.myDate = new Date();
                 $scope.$apply();
             }
         }
-        
-        $scope.myDate=new Date();
-        $scope.data1 = {};
-        $scope.data1.rate = "150";
-        $scope.data1.rateUnit = "Bpm";
-        $scope.data1.capacity = "3347";
-        $scope.data1.capacityUnit = "ml";
-        $scope.data1.age = "39";
-        $scope.data1.ageUnit = "岁";
-        $scope.data1.airflow = "10";
-        $scope.data1.airflowUnit = "s";
-        $scope.data1.tmp = "37.3";
-        $scope.data1.tmpUnit = "℃";
-        $scope.data1.sleep = "8.0";
-        $scope.data1.sleepUnit = "h/d";
-        $scope.data1.sugar = "5";
-        $scope.data1.sugarUnit = "mmol/L";
-        $scope.data1.oxygen = "92";
-        $scope.data1.oxygenUnit = "%";
-        $scope.data1.pressure = "100/90";
-        $scope.data1.pressureUnit = "mmHg";
-        $scope.data1.pulse = "120";
-        $scope.data1.pulseUnit = "Bpm";
-        $scope.data1.weight = "70";
-        $scope.data1.weightUnit = "kg";
-        $scope.data1.Muscle = "35";
-        $scope.data1.MuscleUnit = "%";
-        $scope.data1.fat = "25";
-        $scope.data1.fatUnit = "%";
-        $scope.data1.metabolism = "1200";
-        $scope.data1.metabolismUnit = "Kcal/d";
-        $scope.data1.steps = "12500";
-        $scope.data1.stepsUnit = "步";
-        $scope.data1.hot = "300";
-        $scope.data1.hotUnit = "Kcal";
-        $scope.data1.rate1 = "250";
-        $scope.data1.rate2 = "250";
-        $scope.data1.rate3 = "20℃";
-        $scope.data1.rate4 = "100%";
+
+        $scope.myDate = new Date();
+        var data1 = {};
+        var data2 = {};
+        var data3 = {};
+        var data4 = {};
+        var data5 = {};
+        var data6 = {};
+        var data7 = {};
+        var data8 = {};
+        var data9 = {};
+        var data10 = {};
+         $scope.data.rate = "150";
+         $scope.data.rateUnit = "Bpm";
+         $scope.data.capacity = "3347";
+         $scope.data.capacityUnit = "ml";
+         $scope.data.age = "39";
+         $scope.data.ageUnit = "岁";
+         $scope.data.airflow = "10";
+         $scope.data.airflowUnit = "s";
+         $scope.data.tmp = "37.3";
+         $scope.data.tmpUnit = "℃";
+         $scope.data.sleep = "8.0";
+         $scope.data.sleepUnit = "h/d";
+         $scope.data.sugar = "8";
+         $scope.data.sugarUnit = "mmol/L";
+         $scope.data.oxygen = "92";
+         $scope.data.oxygenUnit = "%";
+         $scope.data.pressure = "140/90";
+         $scope.data.pressureUnit = "mmHg";
+         $scope.data.pulse = "120";
+         $scope.data.pulseUnit = "Bpm";
+         $scope.data.weight = "70";
+         $scope.data.weightUnit = "kg";
+         $scope.data.Muscle = "35";
+         $scope.data.MuscleUnit = "%";
+         $scope.data.fat = "25";
+         $scope.data.fatUnit = "%";
+         $scope.data.metabolism = "1200";
+         $scope.data.metabolismUnit = "Kcal/d";
+         $scope.data.steps = "12500";
+         $scope.data.stepsUnit = "步";
+         $scope.data.hot = "300";
+         $scope.data.hotUnit = "Kcal";
+         $scope.data.rate1 = "250";
+         $scope.data.rate2 = "250";
+         $scope.data.rate3 = "20℃";
+         $scope.data.rate4 = "100%";
 
 
-        $scope.data2 = {};
-        $scope.data2.rate = "110";
-        $scope.data2.rateUnit = "Bpm";
-        $scope.data2.capacity = "3200";
-        $scope.data2.capacityUnit = "ml";
-        $scope.data2.age = "39";
-        $scope.data2.ageUnit = "岁";
-        $scope.data2.airflow = "10";
-        $scope.data2.airflowUnit = "s";
-        $scope.data2.tmp = "37.5";
-        $scope.data2.tmpUnit = "℃";
-        $scope.data2.sleep = "9.0";
-        $scope.data2.sleepUnit = "h/d";
-        $scope.data2.sugar = "6";
-        $scope.data2.sugarUnit = "mmol/L";
-        $scope.data2.oxygen = "97";
-        $scope.data2.oxygenUnit = "%";
-        $scope.data2.pressure = "110/89";
-        $scope.data2.pressureUnit = "mmHg";
-        $scope.data2.pulse = "130";
-        $scope.data2.pulseUnit = "Bpm";
-        $scope.data2.weight = "60";
-        $scope.data2.weightUnit = "kg";
-        $scope.data2.Muscle = "37";
-        $scope.data2.MuscleUnit = "%";
-        $scope.data2.fat = "15";
-        $scope.data2.fatUnit = "%";
-        $scope.data2.metabolism = "1290";
-        $scope.data2.metabolismUnit = "Kcal/d";
-        $scope.data2.steps = "17500";
-        $scope.data2.stepsUnit = "步";
-        $scope.data2.hot = "400";
-        $scope.data2.hotUnit = "Kcal";
-        $scope.data2.rate1 = "250";
-        $scope.data2.rate2 = "250";
-        $scope.data2.rate3 = "20℃";
-        $scope.data2.rate4 = "100%";
+        data1.steps = "6000";
+        data1.hot = "1500";
+        data1.rate = "80";
+        data1.pulse = "80";
+        data1.rate3 = "20℃";
+        data1.rate4 = "50%";
 
+        data2.steps = "6010";
+        data2.hot = "1501";
+        data2.rate = "78";
+        data2.pulse = "82";
+        data2.rate3 = "20℃";
+        data2.rate4 = "50%";
 
-        $scope.data3 = {};
-        $scope.data3.rate = "150";
-        $scope.data3.rateUnit = "Bpm";
-        $scope.data3.capacity = "2847";
-        $scope.data3.capacityUnit = "ml";
-        $scope.data3.age = "39";
-        $scope.data3.ageUnit = "岁";
-        $scope.data3.airflow = "10";
-        $scope.data3.airflowUnit = "s";
-        $scope.data3.tmp = "38.3";
-        $scope.data3.tmpUnit = "℃";
-        $scope.data3.sleep = "8.0";
-        $scope.data3.sleepUnit = "h/d";
-        $scope.data3.sugar = "9";
-        $scope.data3.sugarUnit = "mmol/L";
-        $scope.data3.oxygen = "90";
-        $scope.data3.oxygenUnit = "%";
-        $scope.data3.pressure = "100/90";
-        $scope.data3.pressureUnit = "mmHg";
-        $scope.data3.pulse = "120";
-        $scope.data3.pulseUnit = "Bpm";
-        $scope.data3.weight = "79";
-        $scope.data3.weightUnit = "kg";
-        $scope.data3.Muscle = "35";
-        $scope.data3.MuscleUnit = "%";
-        $scope.data3.fat = "25";
-        $scope.data3.fatUnit = "%";
-        $scope.data3.metabolism = "900";
-        $scope.data3.metabolismUnit = "Kcal/d";
-        $scope.data3.steps = "9000";
-        $scope.data3.stepsUnit = "步";
-        $scope.data3.hot = "100";
-        $scope.data3.hotUnit = "Kcal";
-        $scope.data3.rate1 = "250";
-        $scope.data3.rate2 = "250";
-        $scope.data3.rate3 = "20℃";
-        $scope.data3.rate4 = "100%";
-        $scope.data = $scope.data1;
+        data3.steps = "6020";
+        data3.hot = "1502";
+        data3.rate = "80";
+        data3.pulse = "80";
+        data3.rate3 = "20℃";
+        data3.rate4 = "50%";
 
-         $scope.load();
+        data4.steps = "6030";
+        data4.hot = "1503";
+        data4.rate = "80";
+        data4.pulse = "82";
+        data4.rate3 = "24℃";
+        data4.rate4 = "49%";
+
+        data5.steps = "6040";
+        data5.hot = "1504";
+        data5.rate = "79";
+        data5.pulse = "85";
+        data5.rate3 = "24℃";
+        data5.rate4 = "49%";
+
+        data6.steps = "6050";
+        data6.hot = "1505";
+        data6.rate = "83";
+        data6.pulse = "81";
+        data6.rate3 = "24℃";
+        data6.rate4 = "49%";
+
+        data7.steps = "6060";
+        data7.hot = "1506";
+        data7.rate = "84";
+        data7.pulse = "80";
+        data7.rate3 = "18℃";
+        data7.rate4 = "54%";
+
+        data8.steps = "6070";
+        data8.hot = "1507";
+        data8.rate = "82";
+        data8.pulse = "82";
+        data8.rate3 = "18℃";
+        data8.rate4 = "54%";
+
+        data9.steps = "6080";
+        data9.hot = "1508";
+        data9.rate = "81";
+        data9.pulse = "84";
+        data9.rate3 = "19℃";
+        data9.rate4 = "54%";
+
+        data10.steps = "6090";
+        data10.hot = "1509";
+        data10.rate = "84";
+        data10.pulse = "77";
+        data10.rate3 = "19℃";
+        data10.rate4 = "54%";
+        $scope.data11 = data1;
+        $scope.load();
 
     });
+
 angular.module("featureController", [])
-    .controller("featureController", function($scope, $http) {
+    .controller("featureController", function($scope, httpFactory) {
         $scope.taglist = [];
         $scope.listLength = 0;
         $scope.load = function() {
-            $http({
-                method: 'GET',
-                url: './data/tag.json'
-            }).then(function successCallback(response) {
-                console.log(1,response)
-                angular.forEach(response.data.list, function(item) {
+            httpFactory.getTagInfo().then(function(res) {
+
+                var count = 0;
+                for (var key in res.data.mapTag) {
                     var tempOpt = {};
-                    tempOpt.tag = item.tag;
-                    tempOpt.type =  $scope.getColor(item.type);
+                    tempOpt.tag = key;
+                    tempOpt.type = $scope.getColor(res.data.mapTag[key]);
                     $scope.taglist.push(tempOpt);
-                });
-                 $scope.listLength= response.data.list.length ;
-                console.log($scope.taglist);
-                 // $scope.$apply();
-            }, function errorCallback(response) {
-                // 请求失败执行代码
+                    count++;
+                }
+                $scope.listLength = count;
+                //     console.log($scope.taglist);
+
+
             });
-            
+
            
+
+
         }
         $scope.getColor = function(type) {
+
             var color = '';
             switch (type) {
-                case 1:
+                case '1':
                     color = 'color_yellow';
                     break;
-                case 2:
+                case '2':
                     color = 'color_red';
                     break;
-                case 3:
+                case '3':
                     color = 'color_green';
                     break;
 
@@ -191,6 +215,7 @@ angular.module("featureController", [])
         $scope.load();
 
     });
+
 angular.module('healthSuggestionController',[])
 .controller('healthSuggestionController',function($scope,httpFactory){
 	$scope.imageList = {
@@ -266,51 +291,76 @@ angular.module('historyController',[])
 
 	}
 });
-    angular.module('httpFactory',['constantModule'])
-.factory('httpFactory',function ($http,SERVER) {
-	var url = SERVER.url;
-	var httpFactory = {
-		"getUserInfo":getUserInfoHttp,
-		"getUserGoodsHistory":getUserGoodsHistoryHttp,
-		"getUserHealthSuggestion":getUserHealthSuggestionHttp,
-	}
+    angular.module('httpFactory', ['constantModule'])
+        .factory('httpFactory', function($http, SERVER) {
+            var url = SERVER.url;
+            var httpFactory = {
+                "getMDSCountList": getMDSCountListHttp,
+                "getTagInfo": getTagInfoHttp,
+                "getUserInfo": getUserInfoHttp,
+                "getUserGoodsHistory": getUserGoodsHistoryHttp,
+                "getUserHealthSuggestion": getUserHealthSuggestionHttp,
+            }
 
-	function getUserInfoHttp () {
-		var targetUrl = "";
-		if(SERVER.isDev){
-			targetUrl= SERVER.dev+"userInfo.json";
-			
-		} else {
-			targetUrl= SERVER.pro+"getAllMemberBaseInfoList.do";
-		}
-		return $http({ method: 'GET',url:targetUrl});
-	}
+            function getMDSCountListHttp(productID,MDID ,MODE ) {
+                var targetUrl = "";
+                if (SERVER.isDev) {
+                    targetUrl = SERVER.dev + "getMDSCountList.json";
 
-	function getUserGoodsHistoryHttp (){
-		var targetUrl = "";
-		if(SERVER.isDev){
-			targetUrl= SERVER.dev+"history.json";
-			
-		} else {
-			targetUrl= SERVER.pro+"getAllMemberBaseInfoList.do";
-		}
-		console.log(1,targetUrl)
-		return $http({ method: 'GET',url:targetUrl});
-	}
+                } else {
+                    targetUrl = SERVER.pro + "getMDSCountList.do";
+                }
+                return $http({ method: 'GET', url: targetUrl });
+            }
 
-	function getUserHealthSuggestionHttp () {
-		var targetUrl = "";
-		if(SERVER.isDev){
-			targetUrl= SERVER.dev+"healthSuggestion.json";
-			
-		} else {
-			targetUrl= SERVER.pro+"getAllHealthAdviceList.do.do";
-		}
-		return $http({ method: 'GET',url:targetUrl});
-	}
+            function getTagInfoHttp() {
+                var targetUrl = "";
+                if (SERVER.isDev) {
+                    targetUrl = SERVER.dev + "tag.json";
 
-	return httpFactory;
-}); 
+                } else {
+                    targetUrl = SERVER.pro + "getAllMemberTagInfoList.do";
+                }
+                return $http({ method: 'GET', url: targetUrl });
+            }
+
+            function getUserInfoHttp() {
+                var targetUrl = "";
+                if (SERVER.isDev) {
+                    targetUrl = SERVER.dev + "userInfo.json";
+
+                } else {
+                    targetUrl = SERVER.pro + "getAllMemberBaseInfoList.do";
+                }
+                return $http({ method: 'GET', url: targetUrl });
+            }
+
+            function getUserGoodsHistoryHttp() {
+                var targetUrl = "";
+                if (SERVER.isDev) {
+                    targetUrl = SERVER.dev + "history.json";
+
+                } else {
+                    targetUrl = SERVER.pro + "getAllMemberBaseInfoList.do";
+                }
+                console.log(1, targetUrl)
+                return $http({ method: 'GET', url: targetUrl });
+            }
+
+            function getUserHealthSuggestionHttp() {
+                var targetUrl = "";
+                if (SERVER.isDev) {
+                    targetUrl = SERVER.dev + "healthSuggestion.json";
+
+                } else {
+                    targetUrl = SERVER.pro + "getAllHealthAdviceList.do";
+                }
+                return $http({ method: 'GET', url: targetUrl });
+            }
+
+            return httpFactory;
+        });
+
 'use stirct';
 angular.module("overViewController", [])
         .controller("overViewController", function($scope, $http) {
@@ -562,7 +612,7 @@ angular.module("overViewController", [])
                         }
                     },
                     type: 'category',
-                    data: ['ICloud', 'ITSM', 'CMDB', 'POS', 'JDE']
+                    data: ['E店宝', 'SRM', 'CRM', 'POS', 'JDE']
                 },
                 series: [{
                     name: '2011年',
@@ -1207,9 +1257,9 @@ angular.module("productInfoController", [])
 
     });
    angular.module("productSaleController", [])
-       .controller("productSaleController", function($scope, $http) {
+       .controller("productSaleController", function($scope, httpFactory) {
            $scope.isShow = false;
-           $scope.area = '华东区';
+           $scope.area = '店中店DZD1_北京1翠微大厦';
            var price1 = [0, 700, 450, 1100, 800, 1300, 200, 900, 700];
            var price2 = [1100, 1300, 1600, 1600, 1700, 1200, 1300];
            var price3 = [1000, 1200, 1100, 1300, 1100, 1700, 1200, 1300];
@@ -1223,37 +1273,55 @@ angular.module("productInfoController", [])
            $scope.onDateSpinnerClick = function() {
                $scope.isShow = !$scope.isShow;
            }
+
+           $scope.load = function(productID,MDID ,MODE ) {
+               httpFactory.getMDSCountList(productID,MDID ,MODE).then(function(res) {
+
+                   var count = 0;
+                   var dateList = [];
+                   var sellList = [];
+                   var saveList = [];
+
+                   for (var date in res.data) {
+                       dateList.push(date);
+                       for (var xy in res.data[date]) {
+                           sellList.push(xy);
+                           saveList.push(res.data[date][xy]);
+                       }
+
+                   }
+                   option.xAxis[0].data = dateList;
+                   option.series[0].data = sellList;
+                   option.series[1].data = saveList;
+                   myChart2.setOption(option);
+
+               });
+           }
            $scope.onDateClick = function(index) {
                $scope.isShow = false;
                switch (index) {
                    case 0:
-                       $scope.area = '华东区';
-                       option.series[0].data = price1;
-                       option.series[1].data = require1;
+                       $scope.area = '店中店DZD1_北京1翠微大厦';
+                       $scope.load(1, 13,1);
                        break;
                    case 1:
-                       $scope.area = '华南区';
-                       option.series[0].data = price2;
-                       option.series[1].data = require2;
+                       $scope.area = '店中店DZD1_北京1同仁堂远大路店';
+                       $scope.load(1, 7,1);
                        break;
                    case 2:
-                       $scope.area = '华中区';
-                       option.series[0].data = price3;
-                       option.series[1].data = require3;
+                       $scope.area = '店中店DZD1_北京1同仁堂牡丹园店';
+                       $scope.load(1, 203,1);
                        break;
                    case 3:
-                       $scope.area = '本市';
-                       option.series[0].data = price4;
-                       option.series[1].data = require4;
+                       $scope.area = '店中店DZD1_北京1燕莎商城店';
+                      $scope.load(1, 3,1);
                        break;
                    case 4:
-                       $scope.area = '天津';
-                       option.series[0].data = price5;
-                       option.series[1].data = require5;
+                       $scope.area = '北京同仁堂施小墨医药有限公司';
+                      $scope.load(1, 10,1);
                        break;
 
                }
-                myChart2.setOption(option);
            }
            $scope.dateLists = [{
                'date': '华东区',
@@ -1293,8 +1361,7 @@ angular.module("productInfoController", [])
 
                calculable: true,
                xAxis: [{
-                   min: '2016',
-                   max: '2022',
+                  
                    splitNumber: 5,
                    type: 'category',
                    boundaryGap: false,
@@ -1327,6 +1394,7 @@ angular.module("productInfoController", [])
            };
 
            myChart2.setOption(option);
+           $scope.load(1, 13,1);
        });
 
 angular.module('producViewController',[])

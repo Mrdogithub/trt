@@ -1,38 +1,39 @@
 angular.module("featureController", [])
-    .controller("featureController", function($scope, $http) {
+    .controller("featureController", function($scope, httpFactory) {
         $scope.taglist = [];
         $scope.listLength = 0;
         $scope.load = function() {
-            $http({
-                method: 'GET',
-                url: './data/tag.json'
-            }).then(function successCallback(response) {
-                console.log(1,response)
-                angular.forEach(response.data.list, function(item) {
+            httpFactory.getTagInfo().then(function(res) {
+
+                var count = 0;
+                for (var key in res.data.mapTag) {
                     var tempOpt = {};
-                    tempOpt.tag = item.tag;
-                    tempOpt.type =  $scope.getColor(item.type);
+                    tempOpt.tag = key;
+                    tempOpt.type = $scope.getColor(res.data.mapTag[key]);
                     $scope.taglist.push(tempOpt);
-                });
-                 $scope.listLength= response.data.list.length ;
-                console.log($scope.taglist);
-                 // $scope.$apply();
-            }, function errorCallback(response) {
-                // 请求失败执行代码
+                    count++;
+                }
+                $scope.listLength = count;
+                //     console.log($scope.taglist);
+
+
             });
-            
+
            
+
+
         }
         $scope.getColor = function(type) {
+
             var color = '';
             switch (type) {
-                case 1:
+                case '1':
                     color = 'color_yellow';
                     break;
-                case 2:
+                case '2':
                     color = 'color_red';
                     break;
-                case 3:
+                case '3':
                     color = 'color_green';
                     break;
 

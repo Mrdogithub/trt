@@ -1,7 +1,7 @@
    angular.module("productSaleController", [])
-       .controller("productSaleController", function($scope, $http) {
+       .controller("productSaleController", function($scope, httpFactory) {
            $scope.isShow = false;
-           $scope.area = '华东区';
+           $scope.area = '店中店DZD1_北京1翠微大厦';
            var price1 = [0, 700, 450, 1100, 800, 1300, 200, 900, 700];
            var price2 = [1100, 1300, 1600, 1600, 1700, 1200, 1300];
            var price3 = [1000, 1200, 1100, 1300, 1100, 1700, 1200, 1300];
@@ -15,37 +15,55 @@
            $scope.onDateSpinnerClick = function() {
                $scope.isShow = !$scope.isShow;
            }
+
+           $scope.load = function(productID,MDID ,MODE ) {
+               httpFactory.getMDSCountList(productID,MDID ,MODE).then(function(res) {
+
+                   var count = 0;
+                   var dateList = [];
+                   var sellList = [];
+                   var saveList = [];
+
+                   for (var date in res.data) {
+                       dateList.push(date);
+                       for (var xy in res.data[date]) {
+                           sellList.push(xy);
+                           saveList.push(res.data[date][xy]);
+                       }
+
+                   }
+                   option.xAxis[0].data = dateList;
+                   option.series[0].data = sellList;
+                   option.series[1].data = saveList;
+                   myChart2.setOption(option);
+
+               });
+           }
            $scope.onDateClick = function(index) {
                $scope.isShow = false;
                switch (index) {
                    case 0:
-                       $scope.area = '华东区';
-                       option.series[0].data = price1;
-                       option.series[1].data = require1;
+                       $scope.area = '店中店DZD1_北京1翠微大厦';
+                       $scope.load(1, 13,1);
                        break;
                    case 1:
-                       $scope.area = '华南区';
-                       option.series[0].data = price2;
-                       option.series[1].data = require2;
+                       $scope.area = '店中店DZD1_北京1同仁堂远大路店';
+                       $scope.load(1, 7,1);
                        break;
                    case 2:
-                       $scope.area = '华中区';
-                       option.series[0].data = price3;
-                       option.series[1].data = require3;
+                       $scope.area = '店中店DZD1_北京1同仁堂牡丹园店';
+                       $scope.load(1, 203,1);
                        break;
                    case 3:
-                       $scope.area = '本市';
-                       option.series[0].data = price4;
-                       option.series[1].data = require4;
+                       $scope.area = '店中店DZD1_北京1燕莎商城店';
+                      $scope.load(1, 3,1);
                        break;
                    case 4:
-                       $scope.area = '天津';
-                       option.series[0].data = price5;
-                       option.series[1].data = require5;
+                       $scope.area = '北京同仁堂施小墨医药有限公司';
+                      $scope.load(1, 10,1);
                        break;
 
                }
-                myChart2.setOption(option);
            }
            $scope.dateLists = [{
                'date': '华东区',
@@ -85,8 +103,7 @@
 
                calculable: true,
                xAxis: [{
-                   min: '2016',
-                   max: '2022',
+                  
                    splitNumber: 5,
                    type: 'category',
                    boundaryGap: false,
@@ -119,4 +136,5 @@
            };
 
            myChart2.setOption(option);
+           $scope.load(1, 13,1);
        });

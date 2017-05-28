@@ -248,7 +248,7 @@ angular.module("overViewController", [])
                         }
                     },
                     type: 'category',
-                    data: ['ICloud', 'ITSM', 'CMDB', 'POS', 'JDE']
+                    data: ['E店宝', 'SRM', 'CRM', 'POS', 'JDE']
                 },
                 series: [{
                     name: '2011年',

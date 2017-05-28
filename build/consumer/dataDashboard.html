@@ -61,7 +61,7 @@
 	        <div>
 	            <div id="u401">
 	                <div id="u402" class="text" style="visibility: visible;">
-	                    <p><span>{{data.rate3}}</span></p>
+	                    <p><span>{{data11.rate3}}</span></p>
 	                </div>
 	            </div>
 	            <div id="u395">
@@ -71,7 +71,7 @@
 	        <div>
 	            <div id="u393">
 	                <div id="u394" class="text" style="visibility: visible;">
-	                    <p><span>{{data.rate4}}</span></p>
+	                    <p><span>{{data11.rate4}}</span></p>
 	                </div>
 	            </div>
 	            <div id="u397" class="ax_default icon">
@@ -82,12 +82,12 @@
 	        <div id="u411">
 	            <img id="u411_img" src="./images/circle_1_u411.png" />
 	        </div>
-	        <div id="u413" ng-class="{'color_yellow':data.rate>120}">
+	        <div id="u413" >
 	            <div id="u414" style="visibility: visible;">
-	                <p><span>{{data.rate}}</span></p>
+	                <p><span>{{data11.rate}}</span></p>
 	            </div>
 	        </div>
-	        <div id="u415" ng-class="{'color_yellow':data.rate>120}">
+	        <div id="u415" >
 	            <div id="u416" style="visibility: visible;">
 	                <p><span>{{data.rateUnit}}</span></p>
 	            </div>
@@ -101,12 +101,12 @@
 	        <div id="u419" class="ax_default _图片" data-label="circle_1">
 	            <img id="u419_img" class="img " src="./images/circle_1_u411.png" />
 	        </div>
-	        <div id="u421" ng-class="{'color_yellow':data.capacity<3000}">
+	        <div id="u421" >
 	            <div id="u422" style="visibility: visible;">
 	                <p><span>{{data.capacity}}</span></p>
 	            </div>
 	        </div>
-	        <div id="u423" ng-class="{'color_yellow':data.capacity<3000}">
+	        <div id="u423" >
 	            <div id="u424" style="visibility: visible;">
 	                <p><span>{{data.capacityUnit}}</span></p>
 	            </div>
@@ -140,12 +140,12 @@
 	        <div id="u477">
 	            <img id="u477_img" src="./images/circle_1_u411.png" />
 	        </div>
-	        <div id="u479" ng-class="{'color_yellow':data.airflow>15}">
+	        <div id="u479" >
 	            <div id="u480" class="text" style="visibility: visible;">
 	                <p><span>{{data.airflow}}</span></p>
 	            </div>
 	        </div>
-	        <div id="u481" ng-class="{'color_yellow':data.airflow>15}">
+	        <div id="u481" >
 	            <div id="u482" style="visibility: visible;">
 	                <p><span>{{data.airflowUnit}}</span></p>
 	            </div>
@@ -159,12 +159,12 @@
 	        <div id="u461">
 	            <img id="u461_img" src="./images/circle_1_u411.png" />
 	        </div>
-	        <div id="u463" ng-class="{'color_yellow':data.tmp>37.5}">
+	        <div id="u463" >
 	            <div id="u464" style="visibility: visible;">
 	                <p><span>{{data.tmp}}</span></p>
 	            </div>
 	        </div>
-	        <div id="u465" ng-class="{'color_yellow':data.tmp>37.5}">
+	        <div id="u465" >
 	            <div id="u466" style="visibility: visible;">
 	                <p><span>{{data.tmpUnit}}</span></p>
 	            </div>
@@ -178,12 +178,12 @@
 	        <div id="u427">
 	            <img id="u427_img" src="./images/circle_1_u411.png" />
 	        </div>
-	        <div id="u429" ng-class="{'color_yellow':data.sleep<8}">
+	        <div id="u429" >
 	            <div id="u430" style="visibility: visible;">
 	                <p><span>{{data.sleep}}</span></p>
 	            </div>
 	        </div>
-	        <div id="u431" ng-class="{'color_yellow':data.sleep<8}">
+	        <div id="u431" >
 	            <img id="u431_img" src="./images/u431.png" />
 	            <div id="u432" style="visibility: visible;">
 	                <p><span>{{data.sleepUnit}}</span></p>
@@ -198,13 +198,13 @@
 	        <div id="u445">
 	            <img id="u445_img" class="img " src="./images/circle_1_u411.png" />
 	        </div>
-	        <div id="u447" ng-class="{'color_yellow':data.sugar<5}">
-	            <div id="u448" style="visibility: visible;">
+	        <div id="u447" >
+	            <div id="u448" style="visibility: visible;" ng-class="{'color_yellow':true}">
 	                <p><span>{{data.sugar}}</span></p>
 	            </div>
 	        </div>
-	        <div id="u449" ng-class="{'color_yellow':data.sugar<5}">
-	            <div id="u450" style="visibility: visible;">
+	        <div id="u449">
+	            <div id="u450" style="visibility: visible;" ng-class="{'color_yellow':true}">
 	                <p><span>{{data.sugarUnit}}</span></p>
 	            </div>
 	        </div>
@@ -223,7 +223,7 @@
 	            </div>
 	        </div>
 	        <!-- Unnamed (文本段落) -->
-	        <div id="u471" ng-class="{'color_yellow':data.oxygen<95}">
+	        <div id="u471" >
 	            <img id="u471_img" class="img " src="./images/u471.png" />
 	            <!-- Unnamed () -->
 	            <div id="u472" class="text" style="visibility: visible;">
@@ -231,7 +231,7 @@
 	            </div>
 	        </div>
 	        <!-- Unnamed (文本段落) -->
-	        <div id="u473" ng-class="{'color_yellow':data.oxygen<95}">
+	        <div id="u473" >
 	            <img id="u473_img" class="img " src="./images/u473.png" />
 	            <!-- Unnamed () -->
 	            <div id="u474" class="text" style="visibility: visible;">
@@ -255,7 +255,7 @@
 	            </div>
 	        </div>
 	        <!-- Unnamed (文本段落) -->
-	        <div id="u455" class="ax_default _文本段落">
+	        <div id="u455" class="ax_default _文本段落" ng-class="{'color_yellow':true}">
 	            <img id="u455_img" class="img " src="./images/u455.png" />
 	            <!-- Unnamed () -->
 	            <div id="u456" class="text" style="visibility: visible;">
@@ -264,16 +264,13 @@
 	        </div>
 	        <!-- Unnamed (文本段落) -->
 	        <div id="u457" class="ax_default _文本段落">
-	            <img id="u457_img" class="img " src="./images/u457.png" />
-	            <!-- Unnamed () -->
-	            <div id="u458" class="text" style="visibility: visible;">
+	            
+	            <div id="u458" class="text" style="visibility: visible;" ng-class="{'color_yellow':true}">
 	                <p><span>{{data.pressureUnit}}</span></p>
 	            </div>
 	        </div>
 	        <!-- Unnamed (文本段落) -->
 	        <div id="u459" class="ax_default _文本段落">
-	            <img id="u459_img" class="img " src="./images/u459.png" />
-	            <!-- Unnamed () -->
 	            <div id="u460" class="text" style="visibility: visible;">
 	                <p><span>收缩压/舒张压</span></p>
 	            </div>
@@ -291,7 +288,7 @@
 	            <img id="u437_img" class="img " src="./images/u413.png" />
 	            <!-- Unnamed () -->
 	            <div id="u438" class="text" style="visibility: visible;">
-	                <p><span>{{data.pulse}}</span></p>
+	                <p><span>{{data11.pulse}}</span></p>
 	            </div>
 	        </div>
 	        <!-- Unnamed (文本段落) -->
@@ -314,12 +311,12 @@
 	        <div id="u513">
 	            <img id="u513_img" class="img " src="./images/circle_1_u411.png" />
 	        </div>
-	        <div id="u515" ng-class="{'color_yellow':data.weight>60}">
+	        <div id="u515" >
 	            <div id="u516" style="visibility: visible;">
 	                <p><span>{{data.weight}}</span></p>
 	            </div>
 	        </div>
-	        <div id="u517" ng-class="{'color_yellow':data.weight>60}">
+	        <div id="u517" >
 	            <div id="u518" class="text" style="visibility: visible;">
 	                <p><span>{{data.weightUnit}}</span></p>
 	            </div>
@@ -333,12 +330,12 @@
 	        <div id="u521">
 	            <img id="u521_img" class="img " src="./images/circle_1_u411.png" />
 	        </div>
-	        <div id="u523" ng-class="{'color_yellow':data.Muscle<35}">
+	        <div id="u523" >
 	            <div id="u524" style="visibility: visible;">
 	                <p><span>{{data.Muscle}}</span></p>
 	            </div>
 	        </div>
-	        <div id="u525" ng-class="{'color_yellow':data.Muscle<35}">
+	        <div id="u525">
 	            <div id="u526" class="text" style="visibility: visible;">
 	                <p><span>{{data.MuscleUnit}}</span></p>
 	            </div>
@@ -352,12 +349,12 @@
 	        <div id="u529">
 	            <img id="u529_img" src="./images/circle_1_u411.png" />
 	        </div>
-	        <div id="u531" ng-class="{'color_yellow':data.Muscle>35}">
+	        <div id="u531" >
 	            <div id="u532" style="visibility: visible;">
 	                <p><span>{{data.fat}}</span></p>
 	            </div>
 	        </div>
-	        <div id="u533" ng-class="{'color_yellow':data.Muscle>35}">
+	        <div id="u533" >
 	            <div id="u534" style="visibility: visible;">
 	                <p><span>{{data.fatUnit}}</span></p>
 	            </div>
@@ -371,12 +368,12 @@
 	        <div id="u537">
 	            <img id="u537_img" class="img " src="./images/circle_1_u411.png" />
 	        </div>
-	        <div id="u539" ng-class="{'color_yellow':data.metabolism<1200}">
+	        <div id="u539" >
 	            <div id="u540" style="visibility: visible;">
 	                <p><span>{{data.metabolism}}</span></p>
 	            </div>
 	        </div>
-	        <div id="u541" ng-class="{'color_yellow':data.metabolism<1200}">
+	        <div id="u541" >
 	            <div id="u542" style="visibility: visible;">
 	                <p><span>{{data.metabolismUnit}}</span></p>
 	            </div>
@@ -390,12 +387,12 @@
 	        <div id="u503">
 	            <img id="u503_img" src="./images/circle_1_u411.png" />
 	        </div>
-	        <div id="u505" ng-class="{'color_yellow':data.steps<12000}">
+	        <div id="u505" >
 	            <div id="u506" style="visibility: visible;">
-	                <p><span>{{data.steps}}</span></p>
+	                <p><span>{{data11.steps}}</span></p>
 	            </div>
 	        </div>
-	        <div id="u507" ng-class="{'color_yellow':data.steps<12000}">
+	        <div id="u507" >
 	            <div id="u508" style="visibility: visible;">
 	                <p><span>{{data.stepsUnit}}</span></p>
 	            </div>
@@ -409,12 +406,12 @@
 	        <div id="u495">
 	            <img id="u495_img" class="img " src="./images/circle_1_u411.png" />
 	        </div>
-	        <div id="u497" ng-class="{'color_yellow':data.hot<300}">
+	        <div id="u497" >
 	            <div id="u498" style="visibility: visible;">
 	                <p><span>{{data.hot}}</span></p>
 	            </div>
 	        </div>
-	        <div id="u499" ng-class="{'color_yellow':data.hot<300}">
+	        <div id="u499" >
 	            <div id="u500" style="visibility: visible;">
 	                <p><span>{{data.hotUnit}}</span></p>
 	            </div>
