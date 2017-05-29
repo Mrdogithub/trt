@@ -1,12 +1,17 @@
     angular.module('httpFactory', ['constantModule'])
-        .factory('httpFactory', function($http, SERVER) {
+        .factory('httpFactory', function($http, SERVER,$sce) {
             var url = SERVER.url;
             var httpFactory = {
+                "getVipList":getVipListFn,
                 "getMDSCountList": getMDSCountListHttp,
                 "getTagInfo": getTagInfoHttp,
                 "getUserInfo": getUserInfoHttp,
                 "getUserGoodsHistory": getUserGoodsHistoryHttp,
                 "getUserHealthSuggestion": getUserHealthSuggestionHttp,
+            }
+
+            function getVipListFn () {
+                return $http({method:"GET",url:SERVER.dev+"vipList.json"})
             }
 
             function getMDSCountListHttp(productID,MDID ,MODE ) {
@@ -31,15 +36,18 @@
                 return $http({ method: 'GET', url: targetUrl });
             }
 
-            function getUserInfoHttp() {
+            function getUserInfoHttp(vipId) {
                 var targetUrl = "";
                 if (SERVER.isDev) {
                     targetUrl = SERVER.dev + "userInfo.json";
 
                 } else {
-                    targetUrl = SERVER.pro + "getAllMemberBaseInfoList.do";
+                    targetUrl = SERVER.pro + "getAllMemberBaseInfoList.do?hykNo="+vipId.hykNo;
+
+                     return  $http.jsonp($sce.trustAsResourceUrl(targetUrl), {jsonpCallbackParam: 'callback'});
                 }
-                return $http({ method: 'GET', url: targetUrl });
+
+               // return $http({ method: 'GET', url: targetUrl,params:{"hykNo":vipId.hykNo}});
             }
 
             function getUserGoodsHistoryHttp() {

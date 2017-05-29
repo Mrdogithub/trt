@@ -1,7 +1,10 @@
 angular.module('userinfoController',[])
-.controller('userinfoController',function($scope,$timeout,httpFactory){
+.controller('userinfoController',function($scope,$timeout,$stateParams,httpFactory){
 	$scope.userInfo = {};
-	httpFactory.getUserInfo().then(function (res) {
-		$scope.userInfo = res.data[0];
+	console.log($)
+	httpFactory.getUserInfo({"hykNo":$stateParams.vipId}).then(function (res) {
+		console.log("controller")
+		console.log(1,res)
+		//$scope.userInfo = res.data[0];
 	});
 });

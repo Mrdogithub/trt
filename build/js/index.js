@@ -3,12 +3,16 @@ angular.module('app',['ui.router','ngAnimate','ui.bootstrap','headerModule', 'le
 angular.module('constantModule',[])
 .constant('SERVER',{
 	"dev":"./data/",
-	"pro":"./TRTDataInsight/",
-	"isDev":true
+	"pro":"http://139.196.141.66:8080/TRTDataInsight/",
+	"isDev":false
 })
 'use strict';
 
-angular.module('app').config(['$stateProvider', '$urlRouterProvider', function ($stateProvider,$urlRouterProvider) {
+angular.module('app').config(['$stateProvider', '$urlRouterProvider','$qProvider',function ($stateProvider,$urlRouterProvider,$qProvider) {
+
+	$qProvider.errorOnUnhandledRejections(false);
+
+
 	$stateProvider.state('consumer',{
 		url:'/',
 		templateUrl:'consumerModule/index.html',
@@ -30,7 +34,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', function (
 		controller:''
 	})
 	.state('consumer.userView.userInfo',{ // 用户基本信息
-		url:'/userInfo',
+		url:'/userInfo/?vipId',
 		templateUrl:'consumerModule/userInfo.html',
 		controller:'userinfoController'
 	})

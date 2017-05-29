@@ -11,22 +11,20 @@
 			{{search.content}}匹配 <span>{{search.searchResult.length}}</span>人
 		</div>
 		<div class = "result">
-			<div class = "item "  ui-sref = "consumer.userView.userInfo" ng-repeat = "item in search.searchResult track by $index">
+			<div class = "item "  ui-sref = "consumer.userView.userInfo({vipId:item.vipNo})" ng-repeat = "item in search.searchResult track by $index">
 				<div class = "image"><i class = "fa fa-user-circle-o icon-resize-60"></i></div>
-				<div class = "name"><span>姓名:</span> {{item.name}}</div>
-				<div class = "name"><span>会员号:</span>{{item.no}}</div>
-			</div>								
+				<div class = "name"><span>姓名:</span> {{item.vipName}}</div>
+				<div class = "name"><span>会员号:</span>{{item.vipNo}}</div>
+			</div>					
 		</div>
 
 		<div class = "hot-wrapper">
 			<h2 class  = "title">热门标签</h2>
-			<div class = "flex-wrapper" ng-click = "search.startSearch()">
-				<div class = "hot-item" >青霉素过敏</div>
-				<div class = "hot-item" >克林霉素过敏</div>
-				<div class = "hot-item">高血压</div>
-				<div class = "hot-item" >青霉素过敏</div>
-				<div class = "hot-item" >高血糖</div>
-				<div class = "hot-item" >气血不足</div>
+			<div class = "flex-wrapper" >
+				<div class = "hot-item" ng-click = "search.searchKey('青霉素过敏')">青霉素过敏</div>
+				<div class = "hot-item" ng-click = "search.searchKey('脾肾不足')">脾肾不足</div>
+				<div class = "hot-item" ng-click = "search.searchKey('高血压病')">高血压病</div>
+				<div class = "hot-item" ng-click = "search.searchKey('血糖偏高')">血糖偏高</div>
 			</div>
 		</div>
 	</div>

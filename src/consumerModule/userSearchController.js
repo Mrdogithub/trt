@@ -1,27 +1,40 @@
 angular.module('userSearchController',[])
-.controller('userSearchController', function ($scope,$timeout) {
-	var data = [
-	{"name":"同仁堂","no":"983612"},
-	{"name":"同仁堂","no":"983322"},
-	{"name":"同仁堂","no":"921232"},
-	{"name":"同仁堂","no":"9123612"}]
-
+.controller('userSearchController', function ($scope,$timeout,httpFactory) {
+	var data = [];
+	httpFactory.getVipList().then(function (res) {
+		data = res.data;
+	});
 	$scope.search = {
 		"searchResult":[],
 		"startSearch":startSearchFn,
-		"remove":removeFn
+		"remove":removeFn,
+		"searchKey":searchKeyFn
 	};
+
+	function searchKeyFn (key) {
+		$scope.search.content = key;
+		$scope.search.searchResult.length = 0;
+		var _filterData = data;
+		_filterData.map(function(item){
+			if(item.tags.length){
+				item.tags.forEach(function (tag) {
+					if(tag === key) {
+						$scope.search.searchResult.push(item);
+					}
+				});
+			}
+		});
+	}
 
 	function removeFn () {
 		$scope.search.searchResult.length = 0;
 		$scope.search.content = " ";
 	}
 	function startSearchFn () {
-		console.log('add')
 		$scope.search.searchResult.length = 0;
 		$timeout(function(){
-			data.forEach(function (item) {
-				$scope.search.searchResult.push(item);
+			httpFactory.getVipList().then(function (res) {
+				$scope.search.searchResult = res.data;
 			});
 		},500)
 	}

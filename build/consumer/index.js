@@ -292,14 +292,19 @@ angular.module('historyController',[])
 	}
 });
     angular.module('httpFactory', ['constantModule'])
-        .factory('httpFactory', function($http, SERVER) {
+        .factory('httpFactory', function($http, SERVER,$sce) {
             var url = SERVER.url;
             var httpFactory = {
+                "getVipList":getVipListFn,
                 "getMDSCountList": getMDSCountListHttp,
                 "getTagInfo": getTagInfoHttp,
                 "getUserInfo": getUserInfoHttp,
                 "getUserGoodsHistory": getUserGoodsHistoryHttp,
                 "getUserHealthSuggestion": getUserHealthSuggestionHttp,
+            }
+
+            function getVipListFn () {
+                return $http({method:"GET",url:SERVER.dev+"vipList.json"})
             }
 
             function getMDSCountListHttp(productID,MDID ,MODE ) {
@@ -324,15 +329,20 @@ angular.module('historyController',[])
                 return $http({ method: 'GET', url: targetUrl });
             }
 
-            function getUserInfoHttp() {
+            function getUserInfoHttp(vipId) {
                 var targetUrl = "";
                 if (SERVER.isDev) {
                     targetUrl = SERVER.dev + "userInfo.json";
 
                 } else {
-                    targetUrl = SERVER.pro + "getAllMemberBaseInfoList.do";
+                    targetUrl = SERVER.pro + "getAllMemberBaseInfoList.do?hykNo="+vipId.hykNo;
+
+                     $http.jsonp($sce.trustAsResourceUrl(targetUrl), {jsonpCallbackParam: 'callback'}).then(function (res){
+                        console.log(1,res)
+                      });
                 }
-                return $http({ method: 'GET', url: targetUrl });
+
+               // return $http({ method: 'GET', url: targetUrl,params:{"hykNo":vipId.hykNo}});
             }
 
             function getUserGoodsHistoryHttp() {
@@ -1453,38 +1463,54 @@ angular.module('recordController',[]).controller('recordController',function($sc
 
 })
 angular.module('userSearchController',[])
-.controller('userSearchController', function ($scope,$timeout) {
-	var data = [
-	{"name":"同仁堂","no":"983612"},
-	{"name":"同仁堂","no":"983322"},
-	{"name":"同仁堂","no":"921232"},
-	{"name":"同仁堂","no":"9123612"}]
-
+.controller('userSearchController', function ($scope,$timeout,httpFactory) {
+	var data = [];
+	httpFactory.getVipList().then(function (res) {
+		data = res.data;
+	});
 	$scope.search = {
 		"searchResult":[],
 		"startSearch":startSearchFn,
-		"remove":removeFn
+		"remove":removeFn,
+		"searchKey":searchKeyFn
 	};
+
+	function searchKeyFn (key) {
+		$scope.search.content = key;
+		$scope.search.searchResult.length = 0;
+		var _filterData = data;
+		_filterData.map(function(item){
+			if(item.tags.length){
+				item.tags.forEach(function (tag) {
+					if(tag === key) {
+						$scope.search.searchResult.push(item);
+					}
+				});
+			}
+		});
+	}
 
 	function removeFn () {
 		$scope.search.searchResult.length = 0;
 		$scope.search.content = " ";
 	}
 	function startSearchFn () {
-		console.log('add')
 		$scope.search.searchResult.length = 0;
 		$timeout(function(){
-			data.forEach(function (item) {
-				$scope.search.searchResult.push(item);
+			httpFactory.getVipList().then(function (res) {
+				$scope.search.searchResult = res.data;
 			});
 		},500)
 	}
 
 });
 angular.module('userinfoController',[])
-.controller('userinfoController',function($scope,$timeout,httpFactory){
+.controller('userinfoController',function($scope,$timeout,$stateParams,httpFactory){
 	$scope.userInfo = {};
-	httpFactory.getUserInfo().then(function (res) {
-		$scope.userInfo = res.data[0];
+	console.log($)
+	httpFactory.getUserInfo({"hykNo":$stateParams.vipId}).then(function (res) {
+		console.log("controller")
+		console.log(1,res)
+		//$scope.userInfo = res.data[0];
 	});
 });
