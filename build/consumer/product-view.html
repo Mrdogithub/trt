@@ -11,22 +11,26 @@
 			{{search.content}}匹配出 <span>{{search.searchResult.length}}</span>个产品
 		</div>
 		<div class = "result">
-			<div class = "item "  ui-sref = "consumer.productDetail.productInfo" ng-repeat = "item in search.searchResult track by $index">
-				<div class = "image"><img src = "./images/17.png" width = "30" height = "30"/></span></div>
-				<div class = "name"><span>产品名称:</span> {{item.name}}</div>
-				<div class = "name"><span>产品编号:</span>{{item.no}}</div>
+			<div class = "item "  ui-sref = "consumer.productDetail.productInfo({productId:item.productNo})" ng-repeat = "item in search.searchResult track by $index">
+				<div class = "image"><img src = "./images/{{item.productNo}}.png" width = "30" height = "30"/></span></div>
+				<div class = "name"><span>产品名称:</span> {{item.productName}}</div>
+				<div class = "name"><span>产品编号:</span>{{item.productNo}}</div>
 			</div>								
 		</div>
 
 		<div class = "hot-wrapper">
 			<h2 class  = "title">热门标签</h2>
-			<div class = "flex-wrapper" ng-click = "search.startSearch()">
-				<div class = "hot-item" >青霉素过敏</div>
-				<div class = "hot-item" >克林霉素过敏</div>
-				<div class = "hot-item">高血压</div>
-				<div class = "hot-item" >青霉素过敏</div>
-				<div class = "hot-item" >高血糖</div>
-				<div class = "hot-item" >气血不足</div>
+			<div class = "flex-wrapper">
+				<div class = "hot-item" ng-click = "search.searchKey('气虚阴亏')">气虚阴亏</div>
+				<div class = "hot-item" ng-click = "search.searchKey('虚热烦倦')">虚热烦倦</div>
+				<div class = "hot-item" ng-click = "search.searchKey('咳喘痰血')">咳喘痰血</div>
+				<div class = "hot-item" ng-click = "search.searchKey('内热消渴')">内热消渴</div>
+				<div class = "hot-item" ng-click = "search.searchKey('辅助降血糖')">辅助降血糖</div>
+				<div class = "hot-item" ng-click = "search.searchKey('增强免疫力')">增强免疫力</div>
+				<div class = "hot-item" ng-click = "search.searchKey('缓解体力疲劳')">缓解体力疲劳</div>
+				<div class = "hot-item" ng-click = "search.searchKey('主治高血压')">主治高血压</div>
+				<div class = "hot-item" ng-click = "search.searchKey('治肾阳亏虚')">治肾阳亏虚</div>
+				<div class = "hot-item" ng-click = "search.searchKey('气血两虚')">气血两虚</div>
 			</div>
 		</div>
 	</div>

@@ -1,9 +1,11 @@
 angular.module("featureController", [])
-    .controller("featureController", function($scope, httpFactory) {
+    .controller("featureController", function($scope, $stateParams,httpFactory) {
+
+        
         $scope.taglist = [];
         $scope.listLength = 0;
         $scope.load = function() {
-            httpFactory.getTagInfo().then(function(res) {
+            httpFactory.getTagInfo({"hykNo":$stateParams.vipId}).then(function(res) {
 
                 var count = 0;
                 for (var key in res.data.mapTag) {

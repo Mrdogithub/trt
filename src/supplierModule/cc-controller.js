@@ -131,65 +131,65 @@ angular.module("ccController", [])
                 myChart2.setOption(option2);
             }
             $scope.onTabClick = function(index) {
-                switch (index) {
-                    case 0:
-                        $scope.isIndex0 = true;
-                        $scope.isIndex1 = false;
-                        $scope.isIndex2 = false;
-                        option2.series[0].data = price1;
-                        option2.series[1].data = require1;
-                        option2.series[2].data = make1;
-                        break;
-                    case 1:
-                        $scope.isIndex0 = false;
-                        $scope.isIndex1 = true;
-                        $scope.isIndex2 = false;
-                        option2.series[0].data = price2;
-                        option2.series[1].data = require2;
-                        option2.series[2].data = make2;
-                        break;
-                    case 2:
-                        $scope.isIndex0 = false;
-                        $scope.isIndex1 = false;
-                        $scope.isIndex2 = true;
-                        option2.series[0].data = price3;
-                        option2.series[1].data = require3;
-                        option2.series[2].data = make3;
-                        break;
+                // switch (index) {
+                //     case 0:
+                //         $scope.isIndex0 = true;
+                //         $scope.isIndex1 = false;
+                //         $scope.isIndex2 = false;
+                //         option2.series[0].data = price1;
+                //         option2.series[1].data = require1;
+                //         option2.series[2].data = make1;
+                //         break;
+                //     case 1:
+                //         $scope.isIndex0 = false;
+                //         $scope.isIndex1 = true;
+                //         $scope.isIndex2 = false;
+                //         option2.series[0].data = price2;
+                //         option2.series[1].data = require2;
+                //         option2.series[2].data = make2;
+                //         break;
+                //     case 2:
+                //         $scope.isIndex0 = false;
+                //         $scope.isIndex1 = false;
+                //         $scope.isIndex2 = true;
+                //         option2.series[0].data = price3;
+                //         option2.series[1].data = require3;
+                //         option2.series[2].data = make3;
+                //         break;
 
-                }
-                piontCount = index;
+                // }
+                // piontCount = index;
 
-                option.series[0].data = convertData([{
-                    name: "海门",
-                    value: '光照：80%；湿度：67%；温度：27℃'
-                }, {
-                    name: "海门1",
-                    value: '光照：60%；湿度：40%；温度：37℃'
-                }, {
-                    name: "海门2",
-                    value: '光照：75%；湿度：63%；温度：23℃'
-                }, {
-                    name: "海门3",
-                    value: '光照：75%；湿度：70%；温度：18℃'
-                }, {
-                    name: "海门4",
-                    value: '光照：40%；湿度：85%；温度：16℃'
-                }, {
-                    name: "海门5",
-                    value: '光照：60%；湿度：30%；温度：30℃'
-                }, {
-                    name: "海门6",
-                    value: '光照：69%；湿度：40%；温度：29℃'
-                }, {
-                    name: "海门7",
-                    value: '光照：69%；湿度：60%；温度：28℃'
-                }, {
-                    name: "非洲",
-                    value: '光照：100%；湿度：80%；温度：22℃'
-                }]);
-                myChart.setOption(option);
-                myChart2.setOption(option2);
+                // option.series[0].data = convertData([{
+                //     name: "海门",
+                //     value: '光照：80%；湿度：67%；温度：27℃'
+                // }, {
+                //     name: "海门1",
+                //     value: '光照：60%；湿度：40%；温度：37℃'
+                // }, {
+                //     name: "海门2",
+                //     value: '光照：75%；湿度：63%；温度：23℃'
+                // }, {
+                //     name: "海门3",
+                //     value: '光照：75%；湿度：70%；温度：18℃'
+                // }, {
+                //     name: "海门4",
+                //     value: '光照：40%；湿度：85%；温度：16℃'
+                // }, {
+                //     name: "海门5",
+                //     value: '光照：60%；湿度：30%；温度：30℃'
+                // }, {
+                //     name: "海门6",
+                //     value: '光照：69%；湿度：40%；温度：29℃'
+                // }, {
+                //     name: "海门7",
+                //     value: '光照：69%；湿度：60%；温度：28℃'
+                // }, {
+                //     name: "非洲",
+                //     value: '光照：100%；湿度：80%；温度：22℃'
+                // }]);
+                // myChart.setOption(option);
+                // myChart2.setOption(option2);
             }
             $scope.count = 0;
             $scope.count2 = 0;

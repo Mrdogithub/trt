@@ -8158,12 +8158,15 @@ input:focus, textarea:focus, select:focus {
 
 
 
-.userView-wrapper .item .image,
+.userView-wrapper .item .image{
+    flex:0 100px;
+}
 .userView-wrapper .item .name{
-    flex:0 200px;
+    flex:0 300px;
 }
 .userView-wrapper .item .image{
     padding-left:30px;
+    padding-right:30px;
 }
 .userView-wrapper .item .image i{
     font-size: 35px;
@@ -9886,18 +9889,16 @@ input:focus, textarea:focus, select:focus {
 }
 
 #u1160_img {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    width: 515px;
-    height: 183px;
+
 }
 
 #u1160 {
-    top: 50%;
-    margin-top: -192px;
-    left: 50%;
-    margin-left: -357px;
+    top: 25%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 300px;
     position: absolute;
 }
 
@@ -10129,6 +10130,7 @@ input:focus, textarea:focus, select:focus {
     color: #1E1E1E;
     background: #fcfcfc;
     text-align: center;
+    display: flex;
 }
 .bottom .img{
     margin-top: 10px;
@@ -10137,7 +10139,7 @@ input:focus, textarea:focus, select:focus {
 }
 .bottom .text{
     margin-top: 3px;
-    margin-left: 20px;
+    margin-left: 5px;
     display: inline;
     font-size:8px;
 }
@@ -10179,6 +10181,47 @@ input:focus, textarea:focus, select:focus {
 .color_green {
     color: #92D603 !important;
 }
+
+.color_pink {
+    color: #FF3399 !important;
+}
+
+.color_brown{
+    color: #996633 !important;
+}
+
+.color_darkBrown {
+    color: #993300 !important;
+}
+
+
+
+
+.color_yellowbg {
+    background: #FDB414 !important;
+}
+
+.color_redbg {
+    background: #FF0066 !important;
+}
+
+.color_greenbg {
+    background: #92D603 !important;
+}
+
+.color_pinkbg {
+    background: #FF3399 !important;
+}
+
+.color_brownbg{
+    background: #996633 !important;
+}
+
+.color_darkBrownbg {
+    background: #993300 !important;
+}
+
+
 
 .datePicker{
     position: relative;
@@ -10777,7 +10820,7 @@ input:focus, textarea:focus, select:focus {
     left: 50%;
     width: 300px;
     margin-left:-400px;
-    margin-top: -330px;
+    margin-top: -310px;
     font-family: 'Microsoft YaHei';
     font-weight: 400;
     font-style: normal;

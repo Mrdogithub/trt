@@ -169,11 +169,13 @@ angular.module("dataDashboardController", [])
     });
 
 angular.module("featureController", [])
-    .controller("featureController", function($scope, httpFactory) {
+    .controller("featureController", function($scope, $stateParams,httpFactory) {
+
+        
         $scope.taglist = [];
         $scope.listLength = 0;
         $scope.load = function() {
-            httpFactory.getTagInfo().then(function(res) {
+            httpFactory.getTagInfo({"hykNo":$stateParams.vipId}).then(function(res) {
 
                 var count = 0;
                 for (var key in res.data.mapTag) {
@@ -217,24 +219,26 @@ angular.module("featureController", [])
     });
 
 angular.module('healthSuggestionController',[])
-.controller('healthSuggestionController',function($scope,httpFactory){
+.controller('healthSuggestionController',function($scope,$stateParams,httpFactory){
 	$scope.imageList = {
 		"ystj":["ys_1","ys_2","ys_3"],
 		"ydtj":["yd_1","yd_3","yd_3"],
 		"cptj":["cp_1","cp_2","cp_3"],
 		"jytj":["jy_1","jy_2","jy_3"]
 	}
-	httpFactory.getUserHealthSuggestion().then(function(res){
+	httpFactory.getUserHealthSuggestion({"hykNo":$stateParams.vipId}).then(function(res){
 		$scope.result = res.data[0];
 	});
 });
 angular.module('historyController',[])
-.controller('historyController',function ($scope,httpFactory) {
+.controller('historyController',function ($scope,$stateParams,httpFactory) {
     $scope.history = {
         "show":showFn,
         "result":data
     }
-    httpFactory.getUserGoodsHistory().then(function (res){
+    httpFactory.getUserGoodsHistory({"hykNo":$stateParams.vipId}).then(function (res){
+        console.log('history')
+        console.log(1,res)
         $scope.history.result = res.data;
     });
 
@@ -301,6 +305,37 @@ angular.module('historyController',[])
                 "getUserInfo": getUserInfoHttp,
                 "getUserGoodsHistory": getUserGoodsHistoryHttp,
                 "getUserHealthSuggestion": getUserHealthSuggestionHttp,
+                "getProductList":getProductListFn,
+                "getAllTagInfoList":getAllTagInfoListFn,
+                "getAllProductBaseInfoList":getAllProductBaseInfoListFn
+            }
+
+            function getAllProductBaseInfoListFn (productIdObj) {
+                var targetUrl = "";
+                if (SERVER.isDev) {
+                    //targetUrl = SERVER.dev + "tag.json";
+
+                } else {
+                    targetUrl = SERVER.pro + "getAllProductBaseInfoList.do";
+                }
+                return $http({ method: 'GET', url: targetUrl,params:{"productID":productIdObj.productId}});                
+            }
+
+            function getAllTagInfoListFn (productIdObj) {
+                var targetUrl = "";
+                if (SERVER.isDev) {
+                    targetUrl = SERVER.dev + "tag.json";
+
+                } else {
+                    targetUrl = SERVER.pro + "getAllTagInfoList.do";
+                }
+
+                console.log(productIdObj.productId+"productIdObj.productId")
+                return $http({ method: 'GET', url: targetUrl,params:{"productID":productIdObj.productId}});
+            }
+
+            function getProductListFn () {
+                return $http({method:"GET",url:SERVER.dev+"productList.json"})
             }
 
             function getVipListFn () {
@@ -318,7 +353,7 @@ angular.module('historyController',[])
                 return $http({ method: 'GET', url: targetUrl });
             }
 
-            function getTagInfoHttp() {
+            function getTagInfoHttp(vipId) {
                 var targetUrl = "";
                 if (SERVER.isDev) {
                     targetUrl = SERVER.dev + "tag.json";
@@ -326,7 +361,7 @@ angular.module('historyController',[])
                 } else {
                     targetUrl = SERVER.pro + "getAllMemberTagInfoList.do";
                 }
-                return $http({ method: 'GET', url: targetUrl });
+                return $http({ method: 'GET', url: targetUrl,params:{"hykNo":vipId.hykNo}});
             }
 
             function getUserInfoHttp(vipId) {
@@ -335,26 +370,22 @@ angular.module('historyController',[])
                     targetUrl = SERVER.dev + "userInfo.json";
 
                 } else {
-                    targetUrl = SERVER.pro + "getAllMemberBaseInfoList.do?hykNo="+vipId.hykNo;
-
-                     $http.jsonp($sce.trustAsResourceUrl(targetUrl), {jsonpCallbackParam: 'callback'}).then(function (res){
-                        console.log(1,res)
-                      });
+                    targetUrl = SERVER.pro + "getAllMemberBaseInfoList.do";
                 }
 
-               // return $http({ method: 'GET', url: targetUrl,params:{"hykNo":vipId.hykNo}});
+               return $http({ method: 'GET', url: targetUrl,params:{"hykNo":vipId.hykNo}});
             }
 
-            function getUserGoodsHistoryHttp() {
+            function getUserGoodsHistoryHttp(vipId) {
                 var targetUrl = "";
                 if (SERVER.isDev) {
                     targetUrl = SERVER.dev + "history.json";
 
                 } else {
-                    targetUrl = SERVER.pro + "getAllMemberBaseInfoList.do";
+                    targetUrl = SERVER.pro + "getAllConsumeBaseInfoList.do";
                 }
                 console.log(1, targetUrl)
-                return $http({ method: 'GET', url: targetUrl });
+                return $http({ method: 'GET', url: targetUrl,params:{"hykNo":vipId.hykNo}});
             }
 
             function getUserHealthSuggestionHttp() {
@@ -1222,50 +1253,94 @@ angular.module("overViewController", [])
             myChart6.setOption(option6);
 
         });
+angular.module('productDetailController',[]).controller('productDetailController',function ($scope,$stateParams,httpFactory) {
+	$scope.product = {
+		"productId":$stateParams.productId
+	};
+})
 angular.module("productInfoController", [])
-    .controller("productInfoController", function($scope, $http) {
-        $scope.taglist = [];
-        $scope.listLength = 0;
-        $scope.load = function() {
-            $http({
-                method: 'GET',
-                url: './data/itemDetails.json'
-            }).then(function successCallback(response) {
-                angular.forEach(response.data.list, function(item) {
-                    var tempOpt = {};
-                    tempOpt.tag = item.tag;
-                    tempOpt.type = $scope.getColor(item.type);
-                    $scope.taglist.push(tempOpt);
-                });
-                $scope.listLength = response.data.list.length;
-                console.log($scope.taglist);
-                // $scope.$apply();
-            }, function errorCallback(response) {
-                // 请求失败执行代码
-            });
-
-
+    .controller("productInfoController", function($scope, $http, $stateParams, httpFactory) {
+        $scope.product = {
+            productId: $stateParams.productId,
+            productName: "",
+            productCode: "",
+            taglist: [],
+            tags: []
         }
+
+        $scope.listLength = 0;
+
+        httpFactory.getAllTagInfoList({ "productId": $stateParams.productId }).then(function(res) {
+            console.log('xxxxxxxxxxxx')
+            console.log(1, res)
+            var len = 0;
+            for (var key in res.data[0]) {
+                len += res.data[0][key].length;
+
+                $scope.product.taglist.push({ "key": key, "tags": res.data[0][key], "color": $scope.getColor(key) });
+                for (var tag in res.data[0][key]) {
+                    var tempOpt = {};
+                    tempOpt.name = res.data[0][key][tag];
+                    tempOpt.type = $scope.getColor(key);
+                    $scope.product.tags.push(tempOpt);
+                }
+
+                // console.log(key)
+                // console.log(res.data[0][key])
+                // var tempOpt = {};
+                // tempOpt['keyName'] = key;
+                // tempOpt['tag'] = res.data[0][key].split(",");
+                // tempOpt['type'] = $scope.getColor(key);
+                // $scope.taglist.push(tempOpt);
+                // console.log('------')
+                // console.log(1,$scope.taglist)
+            }
+            
+            console.log($scope.product.tags[3]);
+
+            $scope.listLength = len;
+            console.log($scope.product.tags);
+             console.log(len);
+            console.log($scope.listLength + "xxxxx");
+
+        });
+
+
+        httpFactory.getAllProductBaseInfoList({ "productId": $stateParams.productId }).then(function(res) {
+            var _result = res.data[0]
+            $scope.product.productName = _result.productName;
+            $scope.product.productCode = _result.productCode;
+        });
+
+
         $scope.getColor = function(type) {
             var color = '';
             switch (type) {
-                case 1:
-                    color = 'color_yellow';
+                case '主治':
+                    color = 'color_yellow'
                     break;
-                case 2:
-                    color = 'color_red';
+                case '禁忌':
+                    color = 'color_red'
                     break;
-                case 3:
-                    color = 'color_green';
+                case '注意事项':
+                    color = 'color_green'
                     break;
-
+                case '保健功能':
+                    color = 'color_pink'
+                    break;
+                case '适宜人群':
+                    color = 'color_brown'
+                    break;
+                case '不适宜人群':
+                    color = 'color_darkBrown'
+                    break;
             }
             return color;
         }
-        $scope.data1 = [];
-        $scope.load();
+
 
     });
+
    angular.module("productSaleController", [])
        .controller("productSaleController", function($scope, httpFactory) {
            $scope.isShow = false;
@@ -1402,35 +1477,49 @@ angular.module("productInfoController", [])
                    data: [0, 900, 600, 1400, 750, 900, 600, 1100, 650]
                }]
            };
-
-           myChart2.setOption(option);
            $scope.load(1, 13,1);
        });
 
 angular.module('producViewController',[])
-.controller('producViewController', function ($scope,$timeout) {
-	var data = [
-	{"name":"枸杞子","no":"983612"},
-	{"name":"枸杞子","no":"983322"},
-	{"name":"枸杞子","no":"921232"},
-	{"name":"枸杞子","no":"9123612"}]
+.controller('producViewController', function ($scope,$timeout,httpFactory) {
+
 
 	$scope.search = {
 		"searchResult":[],
 		"startSearch":startSearchFn,
-		"remove":removeFn
+		"remove":removeFn,
+		"searchKey":searchKeyFn
 	};
+	var data = []
+	httpFactory.getProductList().then(function (res) {
+		data = res.data;
+	});
+
+	function searchKeyFn(key) {
+		$scope.search.content = key;
+		$scope.search.searchResult.length = 0;
+		var _filterData = data;
+		_filterData.map(function(item){
+			if(item.tags.length){
+				item.tags.forEach(function (tag) {
+					if(tag === key) {
+						$scope.search.searchResult.push(item);
+					}
+				});
+			}
+		});
+	}
 
 	function removeFn () {
 		$scope.search.searchResult.length = 0;
 		$scope.search.content = " ";
 	}
+
 	function startSearchFn () {
-		console.log('add')
 		$scope.search.searchResult.length = 0;
 		$timeout(function(){
-			data.forEach(function (item) {
-				$scope.search.searchResult.push(item);
+			httpFactory.getProductList().then(function (res) {
+				$scope.search.searchResult = res.data;
 			});
 		},500)
 	}
@@ -1504,13 +1593,21 @@ angular.module('userSearchController',[])
 	}
 
 });
+angular.module('userViewController',[]).controller('userViewController',function($scope,$http,$stateParams,httpFactory){
+	$scope.userBaseInfo = {};
+	httpFactory.getUserInfo({"hykNo":$stateParams.vipId}).then(function (res) {
+	    $scope.userBaseInfo = res.data[0];
+	},function (err) {
+		//alert('服务器错误')
+	});
+});
 angular.module('userinfoController',[])
 .controller('userinfoController',function($scope,$timeout,$stateParams,httpFactory){
 	$scope.userInfo = {};
 	console.log($)
 	httpFactory.getUserInfo({"hykNo":$stateParams.vipId}).then(function (res) {
-		console.log("controller")
-		console.log(1,res)
-		//$scope.userInfo = res.data[0];
+		console.log("controller info")
+
+		$scope.userInfo = res.data[0];
 	});
 });

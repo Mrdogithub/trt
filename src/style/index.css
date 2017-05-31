@@ -152,12 +152,15 @@ input:focus, textarea:focus, select:focus {
 
 
 
-.userView-wrapper .item .image,
+.userView-wrapper .item .image{
+    flex:0 100px;
+}
 .userView-wrapper .item .name{
-    flex:0 200px;
+    flex:0 300px;
 }
 .userView-wrapper .item .image{
     padding-left:30px;
+    padding-right:30px;
 }
 .userView-wrapper .item .image i{
     font-size: 35px;

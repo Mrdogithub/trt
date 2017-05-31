@@ -4,9 +4,9 @@
 	<div class = "product-title-wrapper">
 		<div class = "tab-wrapper">
 			<ul>
-				<li><a ui-sref = ".productInfo"      ui-sref-active = "product-active">基本信息</a></li>
-				<li><a ui-sref = ".productSale"      ui-sref-active = "product-active">库存&销量</a></li>
-				<li><a ui-sref = ".productComments"  ui-sref-active = "product-active">评论信息</a></li>
+				<li><a ui-sref = ".productInfo({productId:product.productId})"      ui-sref-active = "product-active">基本信息</a></li>
+				<li><a ui-sref = ".productSale({productId:product.productId})"      ui-sref-active = "product-active">库存&销量</a></li>
+				<li><a ui-sref = ".productComments({productId:product.productId})"  ui-sref-active = "product-active">评论信息</a></li>
 			</ul>
 		</div>
 	</div>

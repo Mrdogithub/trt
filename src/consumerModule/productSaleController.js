@@ -134,7 +134,5 @@
                    data: [0, 900, 600, 1400, 750, 900, 600, 1100, 650]
                }]
            };
-
-           myChart2.setOption(option);
            $scope.load(1, 13,1);
        });

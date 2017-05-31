@@ -1,10 +1,12 @@
 angular.module('historyController',[])
-.controller('historyController',function ($scope,httpFactory) {
+.controller('historyController',function ($scope,$stateParams,httpFactory) {
     $scope.history = {
         "show":showFn,
         "result":data
     }
-    httpFactory.getUserGoodsHistory().then(function (res){
+    httpFactory.getUserGoodsHistory({"hykNo":$stateParams.vipId}).then(function (res){
+        console.log('history')
+        console.log(1,res)
         $scope.history.result = res.data;
     });
 

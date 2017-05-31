@@ -5,20 +5,20 @@
 		<div class = "userInfo-wrapper">
 			<div class = "item"><i class = "fa fa-user-circle-o icon-resize-60"></i></div>
 			<div class = "item add-space">
-				<span>admin</span>
-				<span>会员编号：902225578</span>
+				<span>{{userBaseInfo.hyk_name}}</span>
+				<span>会员编号：{{userBaseInfo.hyk_No}}</span>
 			</div>
 		</div>
 	
 		<div class = "tab-wrapper">
 			<ul>
-				<li><a ui-sref = ".userInfo" ui-sref-active = "tabActive">基本信息</a></li>
-				<li><a ui-sref = ".disease.xy"  ui-sref-active = "tabActive">慢病管理</a></li>
-				<li><a ui-sref = ".history"  ui-sref-active = "tabActive">历史购买</a></li>
-				<li><a ui-sref = ".record"   ui-sref-active = "tabActive">健康档案</a></li>
-				<li><a ui-sref = ".suggestion" ui-sref-active = "tabActive">健康建议</a></li>
-				<li><a ui-sref = ".feature" ui-sref-active = "tabActive">标签</a></li>
-				<li><a ui-sref = ".dataDashboard" ui-sref-active = "tabActive">交互数据仪表盘</a></li>
+				<li><a ui-sref = ".userInfo({vipId:userBaseInfo.hyk_No})" ui-sref-active = "tabActive">基本信息</a></li>
+				<li><a ui-sref = ".dataDashboard({vipId:userBaseInfo.hyk_No})" ui-sref-active = "tabActive">交互数据仪表盘</a></li>
+				<li><a ui-sref = ".feature({vipId:userBaseInfo.hyk_No})" ui-sref-active = "tabActive">标签</a></li>
+				<li><a ui-sref = ".suggestion({vipId:userBaseInfo.hyk_No})" ui-sref-active = "tabActive">健康建议</a></li>
+				<li><a ui-sref = ".disease.xy({vipId:userBaseInfo.hyk_No})"  ui-sref-active = "tabActive">慢病管理</a></li>
+				<li><a ui-sref = ".record({vipId:userBaseInfo.hyk_No})"   ui-sref-active = "tabActive">健康档案</a></li>
+				<li><a ui-sref = ".history({vipId:userBaseInfo.hyk_No})"  ui-sref-active = "tabActive">历史购买</a></li>
 			</ul>
 		</div>
 	</div>

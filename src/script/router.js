@@ -23,7 +23,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider','$qProvider
 	.state('consumer.userView',{ // 用户视图内容
 		url:'consumer/userView',
 		templateUrl:'consumerModule/userView.html',
-		controller:''
+		controller:'userViewController'
 	})
 	.state('consumer.userView.userInfo',{ // 用户基本信息
 		url:'/userInfo/?vipId',
@@ -31,57 +31,57 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider','$qProvider
 		controller:'userinfoController'
 	})
 	.state('consumer.userView.disease',{ // 用户慢病管理
-		url:'/disease',
+		url:'/disease/?vipId',
 		templateUrl:'consumerModule/disease.html',
 		controller:''
 	})
 	.state('consumer.userView.disease.xy',{ // 用户慢病管理 血压
-		url:'/disease/xy',
+		url:'/disease/xy/?vipId',
 		templateUrl:'consumerModule/xy.html',
 		controller:''
 	})
 	.state('consumer.userView.disease.xt',{ // 用户慢病管理 血糖
-		url:'/disease/xt',
+		url:'/disease/xt/?vipId',
 		templateUrl:'consumerModule/xt.html',
 		controller:''
 	})
 	.state('consumer.userView.history',{ // 用户购买历史
-		url:'/history',
+		url:'/history/?vipId',
 		templateUrl:'consumerModule/history.html',
 		controller:'historyController'
 	})
 	.state('consumer.userView.record',{ // 用户健康档案
-		url:'/record',
+		url:'/record/?vipId',
 		templateUrl:'consumerModule/record.html',
 		controller:'recordController'
 	})
 	.state('consumer.userView.recordDetail',{ // 用户健康档案
-		url:'/record',
+		url:'/record/?vipId',
 		templateUrl:'consumerModule/detail.html',
 		controller:'recordController'
 	})	
 	.state('consumer.userView.recordDetail.info',{ // 用户健康档案
-		url:'/info',
+		url:'/info/?vipId',
 		templateUrl:'consumerModule/info.html',
 		controller:''
 	})
 	.state('consumer.userView.recordDetail.result',{ // 用户健康档案
-		url:'/result',
+		url:'/result/?vipId',
 		templateUrl:'consumerModule/result.html',
 		controller:''
 	})	
 	.state('consumer.userView.suggestion',{ // 用户健康建议
-		url:'/suggestion',
+		url:'/suggestion/?vipId',
 		templateUrl:'consumerModule/suggestion.html',
 		controller:'healthSuggestionController'
 	})
 	.state('consumer.userView.feature',{ // 用户标签
-		url:'/feature',
+		url:'/feature/?vipId',
 		templateUrl:'consumerModule/feature.html',
 		controller:'featureController'
 	})
 	.state('consumer.userView.dataDashboard',{ // 用户交互数仪表盘
-		url:'/dataDashboard',
+		url:'/dataDashboard/?vipId',
 		templateUrl:'consumerModule/dataDashboard.html',
 		controller:'dataDashboardController'
 	})
@@ -91,24 +91,24 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider','$qProvider
 		controller:'producViewController'
 	})
 	.state('consumer.productDetail.productInfo',{ // 产品基本信息
-		url:'productInfo',
+		url:'productInfo/?productId',
 		templateUrl:'consumerModule/product-info.html',
 		controller:'productInfoController'
 	})
 	.state('consumer.productDetail.productSale',{ // 产品销售
-		url:'productSale',
+		url:'productSale/?productId',
 		templateUrl:'consumerModule/product-sale.html',
 		controller:'productSaleController'
 	})
 	.state('consumer.productDetail.productComments',{ // 产品评论
-		url:'productComments',
+		url:'productComments/?productId',
 		templateUrl:'consumerModule/product-comments.html',
 		controller:''
 	})			
 	.state('consumer.productDetail',{ // 产品视图详情
 		url:'consumer/productDetail',
 		templateUrl:'consumerModule/product-detail.html',
-		controller:''
+		controller:'productDetailController'
 	})
 
 	.state('supplier',{

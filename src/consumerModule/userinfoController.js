@@ -3,8 +3,8 @@ angular.module('userinfoController',[])
 	$scope.userInfo = {};
 	console.log($)
 	httpFactory.getUserInfo({"hykNo":$stateParams.vipId}).then(function (res) {
-		console.log("controller")
-		console.log(1,res)
-		//$scope.userInfo = res.data[0];
+		console.log("controller info")
+
+		$scope.userInfo = res.data[0];
 	});
 });

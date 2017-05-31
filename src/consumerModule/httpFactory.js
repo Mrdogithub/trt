@@ -8,6 +8,37 @@
                 "getUserInfo": getUserInfoHttp,
                 "getUserGoodsHistory": getUserGoodsHistoryHttp,
                 "getUserHealthSuggestion": getUserHealthSuggestionHttp,
+                "getProductList":getProductListFn,
+                "getAllTagInfoList":getAllTagInfoListFn,
+                "getAllProductBaseInfoList":getAllProductBaseInfoListFn
+            }
+
+            function getAllProductBaseInfoListFn (productIdObj) {
+                var targetUrl = "";
+                if (SERVER.isDev) {
+                    //targetUrl = SERVER.dev + "tag.json";
+
+                } else {
+                    targetUrl = SERVER.pro + "getAllProductBaseInfoList.do";
+                }
+                return $http({ method: 'GET', url: targetUrl,params:{"productID":productIdObj.productId}});                
+            }
+
+            function getAllTagInfoListFn (productIdObj) {
+                var targetUrl = "";
+                if (SERVER.isDev) {
+                    targetUrl = SERVER.dev + "tag.json";
+
+                } else {
+                    targetUrl = SERVER.pro + "getAllTagInfoList.do";
+                }
+
+                console.log(productIdObj.productId+"productIdObj.productId")
+                return $http({ method: 'GET', url: targetUrl,params:{"productID":productIdObj.productId}});
+            }
+
+            function getProductListFn () {
+                return $http({method:"GET",url:SERVER.dev+"productList.json"})
             }
 
             function getVipListFn () {
@@ -25,7 +56,7 @@
                 return $http({ method: 'GET', url: targetUrl });
             }
 
-            function getTagInfoHttp() {
+            function getTagInfoHttp(vipId) {
                 var targetUrl = "";
                 if (SERVER.isDev) {
                     targetUrl = SERVER.dev + "tag.json";
@@ -33,7 +64,7 @@
                 } else {
                     targetUrl = SERVER.pro + "getAllMemberTagInfoList.do";
                 }
-                return $http({ method: 'GET', url: targetUrl });
+                return $http({ method: 'GET', url: targetUrl,params:{"hykNo":vipId.hykNo}});
             }
 
             function getUserInfoHttp(vipId) {
@@ -42,24 +73,22 @@
                     targetUrl = SERVER.dev + "userInfo.json";
 
                 } else {
-                    targetUrl = SERVER.pro + "getAllMemberBaseInfoList.do?hykNo="+vipId.hykNo;
-
-                     return  $http.jsonp($sce.trustAsResourceUrl(targetUrl), {jsonpCallbackParam: 'callback'});
+                    targetUrl = SERVER.pro + "getAllMemberBaseInfoList.do";
                 }
 
-               // return $http({ method: 'GET', url: targetUrl,params:{"hykNo":vipId.hykNo}});
+               return $http({ method: 'GET', url: targetUrl,params:{"hykNo":vipId.hykNo}});
             }
 
-            function getUserGoodsHistoryHttp() {
+            function getUserGoodsHistoryHttp(vipId) {
                 var targetUrl = "";
                 if (SERVER.isDev) {
                     targetUrl = SERVER.dev + "history.json";
 
                 } else {
-                    targetUrl = SERVER.pro + "getAllMemberBaseInfoList.do";
+                    targetUrl = SERVER.pro + "getAllConsumeBaseInfoList.do";
                 }
                 console.log(1, targetUrl)
-                return $http({ method: 'GET', url: targetUrl });
+                return $http({ method: 'GET', url: targetUrl,params:{"hykNo":vipId.hykNo}});
             }
 
             function getUserHealthSuggestionHttp() {
