@@ -45,23 +45,23 @@
                switch (index) {
                    case 0:
                        $scope.area = '店中店DZD1_北京1翠微大厦';
-                       $scope.load($stateParams.productId, 13,1);
+                       $scope.load($stateParams.productId, 13,2);
                        break;
                    case 1:
                        $scope.area = '店中店DZD1_北京1同仁堂远大路店';
-                       $scope.load($stateParams.productId, 7,1);
+                       $scope.load($stateParams.productId, 7,2);
                        break;
                    case 2:
                        $scope.area = '店中店DZD1_北京1同仁堂牡丹园店';
-                       $scope.load($stateParams.productId, 203,1);
+                       $scope.load($stateParams.productId, 203,2);
                        break;
                    case 3:
                        $scope.area = '店中店DZD1_北京1燕莎商城店';
-                      $scope.load($stateParams.productId, 3,1);
+                      $scope.load($stateParams.productId, 3,2);
                        break;
                    case 4:
                        $scope.area = '北京同仁堂施小墨医药有限公司';
-                      $scope.load($stateParams.productId, 10,1);
+                      $scope.load($stateParams.productId, 10,2);
                        break;
 
                }
@@ -135,5 +135,5 @@
                    data: [0, 900, 600, 1400, 750, 900, 600, 1100, 650]
                }]
            };
-           $scope.load($stateParams.productId, 13,1);
+           $scope.load($stateParams.productId, 13,2);
        });

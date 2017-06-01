@@ -1477,7 +1477,7 @@ angular.module("productInfoController", [])
                    data: [0, 900, 600, 1400, 750, 900, 600, 1100, 650]
                }]
            };
-           $scope.load($stateParams.productId, 13,1);
+           $scope.load($stateParams.productId, 13,2);
        });
 
 angular.module('producViewController',[])
