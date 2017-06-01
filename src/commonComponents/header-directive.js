@@ -5,7 +5,7 @@ angular.module('headerModule',[]).directive('headerComponent', function () {
 	return {
 		restrict: "E",
 		template:'<header class="main-header" >'
-				+'<a href="index2.html" class="logo" style = "text-align:left;">'
+				+'<a class="logo" style = "text-align:left;">'
 				+'     <img src = "images/trtlogo.jpeg" width = "120" height = "auto"/>'
 				+'    </a>'
 				+'    <nav class="navbar navbar-static-top">'

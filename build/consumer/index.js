@@ -342,7 +342,7 @@ angular.module('historyController',[])
                 return $http({method:"GET",url:SERVER.dev+"vipList.json"})
             }
 
-            function getMDSCountListHttp(productID,MDID ,MODE ) {
+            function getMDSCountListHttp(productID,MDID,MODE) {
                 var targetUrl = "";
                 if (SERVER.isDev) {
                     targetUrl = SERVER.dev + "getMDSCountList.json";
@@ -350,7 +350,7 @@ angular.module('historyController',[])
                 } else {
                     targetUrl = SERVER.pro + "getMDSCountList.do";
                 }
-                return $http({ method: 'GET', url: targetUrl });
+                return $http({ method: 'GET', url: targetUrl,params:{"productID":productID,"MDID":MDID,"MODE":MODE} });
             }
 
             function getTagInfoHttp(vipId) {
@@ -388,7 +388,7 @@ angular.module('historyController',[])
                 return $http({ method: 'GET', url: targetUrl,params:{"hykNo":vipId.hykNo}});
             }
 
-            function getUserHealthSuggestionHttp() {
+            function getUserHealthSuggestionHttp(vipId) {
                 var targetUrl = "";
                 if (SERVER.isDev) {
                     targetUrl = SERVER.dev + "healthSuggestion.json";
@@ -396,7 +396,7 @@ angular.module('historyController',[])
                 } else {
                     targetUrl = SERVER.pro + "getAllHealthAdviceList.do";
                 }
-                return $http({ method: 'GET', url: targetUrl });
+                return $http({ method: 'GET', url: targetUrl});
             }
 
             return httpFactory;
@@ -1271,8 +1271,7 @@ angular.module("productInfoController", [])
         $scope.listLength = 0;
 
         httpFactory.getAllTagInfoList({ "productId": $stateParams.productId }).then(function(res) {
-            console.log('xxxxxxxxxxxx')
-            console.log(1, res)
+
             var len = 0;
             for (var key in res.data[0]) {
                 len += res.data[0][key].length;
@@ -1342,7 +1341,8 @@ angular.module("productInfoController", [])
     });
 
    angular.module("productSaleController", [])
-       .controller("productSaleController", function($scope, httpFactory) {
+       .controller("productSaleController", function($scope,$stateParams, httpFactory) {
+        console.log($stateParams.productId+": id ")
            $scope.isShow = false;
            $scope.area = '店中店DZD1_北京1翠微大厦';
            var price1 = [0, 700, 450, 1100, 800, 1300, 200, 900, 700];
@@ -1387,23 +1387,23 @@ angular.module("productInfoController", [])
                switch (index) {
                    case 0:
                        $scope.area = '店中店DZD1_北京1翠微大厦';
-                       $scope.load(1, 13,1);
+                       $scope.load($stateParams.productId, 13,2);
                        break;
                    case 1:
                        $scope.area = '店中店DZD1_北京1同仁堂远大路店';
-                       $scope.load(1, 7,1);
+                       $scope.load($stateParams.productId, 7,2);
                        break;
                    case 2:
                        $scope.area = '店中店DZD1_北京1同仁堂牡丹园店';
-                       $scope.load(1, 203,1);
+                       $scope.load($stateParams.productId, 203,2);
                        break;
                    case 3:
                        $scope.area = '店中店DZD1_北京1燕莎商城店';
-                      $scope.load(1, 3,1);
+                      $scope.load($stateParams.productId, 3,2);
                        break;
                    case 4:
                        $scope.area = '北京同仁堂施小墨医药有限公司';
-                      $scope.load(1, 10,1);
+                      $scope.load($stateParams.productId, 10,2);
                        break;
 
                }
@@ -1477,7 +1477,7 @@ angular.module("productInfoController", [])
                    data: [0, 900, 600, 1400, 750, 900, 600, 1100, 650]
                }]
            };
-           $scope.load(1, 13,1);
+           $scope.load($stateParams.productId, 13,1);
        });
 
 angular.module('producViewController',[])

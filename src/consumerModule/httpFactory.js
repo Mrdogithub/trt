@@ -45,7 +45,7 @@
                 return $http({method:"GET",url:SERVER.dev+"vipList.json"})
             }
 
-            function getMDSCountListHttp(productID,MDID ,MODE ) {
+            function getMDSCountListHttp(productID,MDID,MODE) {
                 var targetUrl = "";
                 if (SERVER.isDev) {
                     targetUrl = SERVER.dev + "getMDSCountList.json";
@@ -53,7 +53,7 @@
                 } else {
                     targetUrl = SERVER.pro + "getMDSCountList.do";
                 }
-                return $http({ method: 'GET', url: targetUrl });
+                return $http({ method: 'GET', url: targetUrl,params:{"productID":productID,"MDID":MDID,"MODE":MODE} });
             }
 
             function getTagInfoHttp(vipId) {
@@ -91,7 +91,7 @@
                 return $http({ method: 'GET', url: targetUrl,params:{"hykNo":vipId.hykNo}});
             }
 
-            function getUserHealthSuggestionHttp() {
+            function getUserHealthSuggestionHttp(vipId) {
                 var targetUrl = "";
                 if (SERVER.isDev) {
                     targetUrl = SERVER.dev + "healthSuggestion.json";
@@ -99,7 +99,7 @@
                 } else {
                     targetUrl = SERVER.pro + "getAllHealthAdviceList.do";
                 }
-                return $http({ method: 'GET', url: targetUrl });
+                return $http({ method: 'GET', url: targetUrl});
             }
 
             return httpFactory;

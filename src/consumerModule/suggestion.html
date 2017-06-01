@@ -3,7 +3,8 @@
 		<h2 class = "title suggestionTitle">今日<strong class = "import">饮食</strong>推荐: 稳定情绪保养心脏</h2>
 		<div class = "flex-wrapper">
 			<div class = "item" ng-repeat = "item in result.ystj track by $index">
-				<div class = "image"><img src= "./images/{{imageList.ystj[$index+1]}}.png"/></div>
+				<div class = "image" ng-if = "item == '猪蹄汤--低血压'"><img src= "./images/zhutitang.jpeg"/></div>
+				<div class = "image" ng-if = "item != '猪蹄汤--低血压'"><img src= "./images/{{imageList.ystj[$index+1]}}.png"/></div>
 				<div class = "desc">{{item}}</div>
 			</div>	
 		</div>

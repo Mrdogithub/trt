@@ -10,7 +10,7 @@ angular.module('leftMenuModulePro',[]).directive('leftMenuModulePro', function (
 				+'          </a>'
 				+'        </li>'
 				+'        <li class="treeview">'
-				+'          <a  ui-sref = ".overView" ui-sref-active = "select">'
+				+'          <a  ui-sref = ".overView" ui-sref-active = "select" style = "cursor:pointer">'
 				+'            <i class="fa fa-home"></i> <span>首页</span>'
 				+'          </a>'
 				+'        </li>'        
